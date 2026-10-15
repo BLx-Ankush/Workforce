@@ -22,7 +22,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentTab, onSelectTab }) => 
     { id: 'projects', label: 'Projects & Staffing', icon: FolderGit2 },
     { id: 'optimizer', label: 'Team Optimizer', icon: Cpu, badge: 'CP-SAT' },
     { id: 'recovery', label: 'Emergency Recovery', icon: AlertOctagon, badge: 'What-If' },
-    { id: 'mentorship', label: 'Skill Gaps & Training', icon: GraduationCap },
     { id: 'meetings', label: 'Team Meetings', icon: Calendar },
   ];
 
@@ -30,7 +29,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentTab, onSelectTab }) => 
     { id: 'dashboard', label: 'My Dashboard', icon: LayoutDashboard },
     { id: 'profile', label: 'Verified Resume & Portfolio', icon: FileText },
     { id: 'github', label: 'GitHub Contributions', icon: GithubIcon, badge: 'OAuth' },
-    { id: 'workload', label: 'My Workload & Leave', icon: Activity },
     { id: 'learning', label: 'Mentorship & Upskilling', icon: GraduationCap },
     { id: 'meetings', label: 'Scheduled Meetings', icon: Calendar },
   ];

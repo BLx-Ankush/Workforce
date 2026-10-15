@@ -78,8 +78,6 @@ const MainContent: React.FC = () => {
           );
         case 'recovery':
           return <EmergencyRecoverySimulator />;
-        case 'mentorship':
-          return <LearningMentorship />;
         case 'meetings':
           return (
             <div className="space-y-4">
@@ -131,8 +129,6 @@ const MainContent: React.FC = () => {
           return <EmployeeProfile />;
         case 'github':
           return <GitHubIntegration />;
-        case 'workload':
-          return <WorkloadIntelligence />;
         case 'learning':
           return <LearningMentorship />;
         case 'meetings':
