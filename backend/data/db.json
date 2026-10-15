@@ -27,6 +27,25 @@
       "employeeRef": "emp_rahul",
       "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
       "createdAt": "2026-10-15T09:35:48.871Z"
+    },
+    {
+      "id": "user_1792066492142",
+      "name": "Rahul Sharma",
+      "email": "rahul.sharma@workforce.ai",
+      "passwordHash": "$2a$06$ZRuyp.yQBCQlVtFPv281Nu0Ft5hYbI1fPMT3UYjFNNkuVmfTAH.ny",
+      "role": "EMPLOYEE",
+      "employeeRef": "emp_rahul",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
+      "createdAt": "2026-10-15T12:14:52.178Z"
+    },
+    {
+      "id": "user_1792066538450",
+      "name": "Marcus Vance",
+      "email": "marcus.vance@workforce.ai",
+      "passwordHash": "$2a$06$DbPb9D.81j2W9tCNPPhz5Oq0SOc3VUpEScf5ZVl7diWUugGopGKcq",
+      "role": "MANAGER",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150",
+      "createdAt": "2026-10-15T12:15:38.467Z"
     }
   ],
   "employees": [
@@ -349,9 +368,9 @@
       "allocatedHours": 30,
       "availableHours": 10,
       "utilizationRate": 75,
-      "workloadRiskScore": 49,
-      "availabilityStatus": "PARTIALLY_COMMITTED",
-      "onLeave": false,
+      "workloadRiskScore": 100,
+      "availabilityStatus": "ON_LEAVE",
+      "onLeave": true,
       "githubUsername": "meera-ai",
       "githubConnected": true,
       "githubAvatar": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=150",
@@ -4347,7 +4366,7 @@
           "hoursPerWeek": 15
         }
       ],
-      "status": "STAFFED",
+      "status": "OPTIMIZED",
       "assignedTeam": [
         {
           "employeeId": "emp_meera",
@@ -16018,6 +16037,3214 @@
         }
       ],
       "explanation": "Successfully synthesized Primary Team and 2 resilient backup alternative(s) using Google OR-Tools CP-SAT in 64.4ms. Primary team covers all 3 roles with 100% mandatory skill compliance and 50.0% complementary skill coverage."
+    },
+    {
+      "id": "rec_1792065470941",
+      "projectId": "proj_ai_intelligence",
+      "timestamp": "2026-10-15T11:57:50.941Z",
+      "primaryTeam": null,
+      "backupTeams": [],
+      "solverStatus": "INFEASIBLE",
+      "solverTimeMs": 58.9,
+      "infeasibilityReasons": [
+        {
+          "role_id": "role_ml_lead",
+          "role_name": "Lead ML Scientist",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 1 qualified candidates have insufficient weekly capacity for 20.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        },
+        {
+          "role_id": "role_backend_eng",
+          "role_name": "FastAPI Backend Engineer",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 2 qualified candidates have insufficient weekly capacity for 15.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        }
+      ],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "Lead ML Scientist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (20.0h)",
+          "suitability_score": 65.2
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Data Pipeline Specialist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.5
+        }
+      ],
+      "explanation": "No feasible team could satisfy all hard constraints for 'AI Customer Intelligence Pipeline'. Found 2 constraint bottleneck(s). Review recommendations below."
+    },
+    {
+      "id": "rec_1792065470952",
+      "projectId": "proj_ai_intelligence",
+      "timestamp": "2026-10-15T11:57:50.952Z",
+      "primaryTeam": null,
+      "backupTeams": [],
+      "solverStatus": "INFEASIBLE",
+      "solverTimeMs": 11.4,
+      "infeasibilityReasons": [
+        {
+          "role_id": "role_ml_lead",
+          "role_name": "Lead ML Scientist",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 1 qualified candidates have insufficient weekly capacity for 20.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        },
+        {
+          "role_id": "role_backend_eng",
+          "role_name": "FastAPI Backend Engineer",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 2 qualified candidates have insufficient weekly capacity for 15.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        }
+      ],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "Lead ML Scientist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (20.0h)",
+          "suitability_score": 65.2
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Data Pipeline Specialist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.5
+        }
+      ],
+      "explanation": "No feasible team could satisfy all hard constraints for 'AI Customer Intelligence Pipeline'. Found 2 constraint bottleneck(s). Review recommendations below."
+    },
+    {
+      "id": "rec_1792065474340",
+      "projectId": "proj_ai_intelligence",
+      "timestamp": "2026-10-15T11:57:54.340Z",
+      "primaryTeam": null,
+      "backupTeams": [],
+      "solverStatus": "INFEASIBLE",
+      "solverTimeMs": 10.7,
+      "infeasibilityReasons": [
+        {
+          "role_id": "role_ml_lead",
+          "role_name": "Lead ML Scientist",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 1 qualified candidates have insufficient weekly capacity for 20.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        },
+        {
+          "role_id": "role_backend_eng",
+          "role_name": "FastAPI Backend Engineer",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 2 qualified candidates have insufficient weekly capacity for 15.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        }
+      ],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "Lead ML Scientist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (20.0h)",
+          "suitability_score": 65.2
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Data Pipeline Specialist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.5
+        }
+      ],
+      "explanation": "No feasible team could satisfy all hard constraints for 'AI Customer Intelligence Pipeline'. Found 2 constraint bottleneck(s). Review recommendations below."
+    },
+    {
+      "id": "rec_1792065475329",
+      "projectId": "proj_ai_intelligence",
+      "timestamp": "2026-10-15T11:57:55.329Z",
+      "primaryTeam": null,
+      "backupTeams": [],
+      "solverStatus": "INFEASIBLE",
+      "solverTimeMs": 9.8,
+      "infeasibilityReasons": [
+        {
+          "role_id": "role_ml_lead",
+          "role_name": "Lead ML Scientist",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 1 qualified candidates have insufficient weekly capacity for 20.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        },
+        {
+          "role_id": "role_backend_eng",
+          "role_name": "FastAPI Backend Engineer",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 2 qualified candidates have insufficient weekly capacity for 15.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        }
+      ],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "Lead ML Scientist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (20.0h)",
+          "suitability_score": 65.2
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Data Pipeline Specialist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.5
+        }
+      ],
+      "explanation": "No feasible team could satisfy all hard constraints for 'AI Customer Intelligence Pipeline'. Found 2 constraint bottleneck(s). Review recommendations below."
+    },
+    {
+      "id": "rec_1792065476156",
+      "projectId": "proj_ai_intelligence",
+      "timestamp": "2026-10-15T11:57:56.156Z",
+      "primaryTeam": null,
+      "backupTeams": [],
+      "solverStatus": "INFEASIBLE",
+      "solverTimeMs": 21.5,
+      "infeasibilityReasons": [
+        {
+          "role_id": "role_ml_lead",
+          "role_name": "Lead ML Scientist",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 1 qualified candidates have insufficient weekly capacity for 20.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        },
+        {
+          "role_id": "role_backend_eng",
+          "role_name": "FastAPI Backend Engineer",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 2 qualified candidates have insufficient weekly capacity for 15.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        }
+      ],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "Lead ML Scientist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (20.0h)",
+          "suitability_score": 65.2
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Data Pipeline Specialist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.5
+        }
+      ],
+      "explanation": "No feasible team could satisfy all hard constraints for 'AI Customer Intelligence Pipeline'. Found 2 constraint bottleneck(s). Review recommendations below."
+    },
+    {
+      "id": "rec_1792065481626",
+      "projectId": "proj_cloud_analytics",
+      "timestamp": "2026-10-15T11:58:01.626Z",
+      "primaryTeam": {
+        "team_label": "Primary Team",
+        "team_type": "primary",
+        "assigned_members": [
+          {
+            "employee_id": "emp_neha",
+            "employee_name": "Neha Gupta",
+            "role_id": "role_cloud_lead",
+            "role_name": "Cloud Solutions Architect",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "AWS": 4,
+              "Docker": 3
+            },
+            "verified_skills_used": [
+              "AWS"
+            ],
+            "individual_suitability_score": 73.1,
+            "utilization_before": 30,
+            "utilization_after": 67.5,
+            "workload_risk_before": 26,
+            "workload_risk_after": 37.2,
+            "experience_years": 4.2,
+            "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS, Docker; 4.2 yrs exp; Post-utilization 67.5%"
+          },
+          {
+            "employee_id": "emp_95",
+            "employee_name": "Swati Deshmukh 4",
+            "role_id": "role_data_lead",
+            "role_name": "Lead Data Engineer",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "Python": 4
+            },
+            "verified_skills_used": [],
+            "individual_suitability_score": 69.9,
+            "utilization_before": 37.5,
+            "utilization_after": 75,
+            "workload_risk_before": 15,
+            "workload_risk_after": 26.2,
+            "experience_years": 6,
+            "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+          },
+          {
+            "employee_id": "emp_anita",
+            "employee_name": "Anita Desai",
+            "role_id": "role_frontend_lead",
+            "role_name": "Frontend Architect",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "React": 5,
+              "TypeScript": 5
+            },
+            "verified_skills_used": [
+              "React",
+              "TypeScript"
+            ],
+            "individual_suitability_score": 87.8,
+            "utilization_before": 37.5,
+            "utilization_after": 75,
+            "workload_risk_before": 15,
+            "workload_risk_after": 26.2,
+            "experience_years": 6,
+            "decision_rationale": "Verified expertise in React, TypeScript; Covers key skills: React, TypeScript; 6.0 yrs exp; Post-utilization 75.0%"
+          }
+        ],
+        "total_score": 76.9,
+        "mandatory_skills_satisfied": true,
+        "preferred_skills_coverage": 50,
+        "missing_preferred_skills": [
+          "Data Analytics",
+          "SQL"
+        ],
+        "solver_status": "OPTIMAL",
+        "objective_value": 230.8,
+        "explanation": "CP-SAT solver achieved OPTIMAL team configuration in 72.5ms. 100% mandatory skills satisfied. Team suitability: 76.9/100. Preferred complementary skills coverage: 50.0%. Zero workload policy violations."
+      },
+      "backupTeams": [
+        {
+          "team_label": "Backup Team A",
+          "team_type": "backup_a",
+          "assigned_members": [
+            {
+              "employee_id": "emp_neha",
+              "employee_name": "Neha Gupta",
+              "role_id": "role_cloud_lead",
+              "role_name": "Cloud Solutions Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "AWS": 4,
+                "Docker": 3
+              },
+              "verified_skills_used": [
+                "AWS"
+              ],
+              "individual_suitability_score": 73.1,
+              "utilization_before": 30,
+              "utilization_after": 67.5,
+              "workload_risk_before": 26,
+              "workload_risk_after": 37.2,
+              "experience_years": 4.2,
+              "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS, Docker; 4.2 yrs exp; Post-utilization 67.5%"
+            },
+            {
+              "employee_id": "emp_85",
+              "employee_name": "Pooja Iyer 4",
+              "role_id": "role_data_lead",
+              "role_name": "Lead Data Engineer",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "Python": 4
+              },
+              "verified_skills_used": [],
+              "individual_suitability_score": 69.9,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_anita",
+              "employee_name": "Anita Desai",
+              "role_id": "role_frontend_lead",
+              "role_name": "Frontend Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "React": 5,
+                "TypeScript": 5
+              },
+              "verified_skills_used": [
+                "React",
+                "TypeScript"
+              ],
+              "individual_suitability_score": 87.8,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in React, TypeScript; Covers key skills: React, TypeScript; 6.0 yrs exp; Post-utilization 75.0%"
+            }
+          ],
+          "total_score": 76.9,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 75,
+          "missing_preferred_skills": [
+            "SQL"
+          ],
+          "solver_status": "OPTIMAL",
+          "objective_value": 230.8,
+          "explanation": "Alternative viable team offering high resilience. Team suitability: 76.9/100. Preferred skill coverage: 75.0%."
+        },
+        {
+          "team_label": "Backup Team B",
+          "team_type": "backup_b",
+          "assigned_members": [
+            {
+              "employee_id": "emp_85",
+              "employee_name": "Pooja Iyer 4",
+              "role_id": "role_cloud_lead",
+              "role_name": "Cloud Solutions Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "AWS": 5
+              },
+              "verified_skills_used": [
+                "AWS"
+              ],
+              "individual_suitability_score": 72.8,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_95",
+              "employee_name": "Swati Deshmukh 4",
+              "role_id": "role_data_lead",
+              "role_name": "Lead Data Engineer",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "Python": 4
+              },
+              "verified_skills_used": [],
+              "individual_suitability_score": 69.9,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_anita",
+              "employee_name": "Anita Desai",
+              "role_id": "role_frontend_lead",
+              "role_name": "Frontend Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "React": 5,
+                "TypeScript": 5
+              },
+              "verified_skills_used": [
+                "React",
+                "TypeScript"
+              ],
+              "individual_suitability_score": 87.8,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in React, TypeScript; Covers key skills: React, TypeScript; 6.0 yrs exp; Post-utilization 75.0%"
+            }
+          ],
+          "total_score": 76.8,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 50,
+          "missing_preferred_skills": [
+            "SQL",
+            "Docker"
+          ],
+          "solver_status": "OPTIMAL",
+          "objective_value": 230.5,
+          "explanation": "Contingency roster minimizing overlap with Primary Team. Team suitability: 76.8/100."
+        }
+      ],
+      "solverStatus": "OPTIMAL",
+      "solverTimeMs": 193.3,
+      "infeasibilityReasons": [],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_11",
+          "employee_name": "Rohan Mehta 1",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 4.0 yrs",
+          "suitability_score": 44.9
+        },
+        {
+          "employee_id": "emp_21",
+          "employee_name": "Aditya Malhotra 1",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 4.0 yrs",
+          "suitability_score": 37.6
+        },
+        {
+          "employee_id": "emp_27",
+          "employee_name": "Shweta Pandey 2",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (13.0h) < role hours (15.0h)",
+          "suitability_score": 61
+        },
+        {
+          "employee_id": "emp_43",
+          "employee_name": "Varun Joshi 2",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (12.0h) < role hours (15.0h)",
+          "suitability_score": 49
+        },
+        {
+          "employee_id": "emp_59",
+          "employee_name": "Siddharth Rao 3",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (11.0h) < role hours (15.0h)",
+          "suitability_score": 56.1
+        },
+        {
+          "employee_id": "emp_91",
+          "employee_name": "Manish Bansal 4",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 4.0 yrs",
+          "suitability_score": 37.6
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Lead Data Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.4
+        },
+        {
+          "employee_id": "emp_vikram",
+          "employee_name": "Vikram Singh",
+          "role_name": "Lead Data Engineer",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 3.2 yrs < required 3.5 yrs",
+          "suitability_score": 73.3
+        }
+      ],
+      "explanation": "Successfully synthesized Primary Team and 2 resilient backup alternative(s) using Google OR-Tools CP-SAT in 193.3ms. Primary team covers all 3 roles with 100% mandatory skill compliance and 50.0% complementary skill coverage."
+    },
+    {
+      "id": "rec_1792065488105",
+      "projectId": "proj_ai_intelligence",
+      "timestamp": "2026-10-15T11:58:08.105Z",
+      "primaryTeam": null,
+      "backupTeams": [],
+      "solverStatus": "INFEASIBLE",
+      "solverTimeMs": 7.4,
+      "infeasibilityReasons": [
+        {
+          "role_id": "role_ml_lead",
+          "role_name": "Lead ML Scientist",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 1 qualified candidates have insufficient weekly capacity for 20.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        },
+        {
+          "role_id": "role_backend_eng",
+          "role_name": "FastAPI Backend Engineer",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 2 qualified candidates have insufficient weekly capacity for 15.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        }
+      ],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "Lead ML Scientist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (20.0h)",
+          "suitability_score": 65.2
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Data Pipeline Specialist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.5
+        }
+      ],
+      "explanation": "No feasible team could satisfy all hard constraints for 'AI Customer Intelligence Pipeline'. Found 2 constraint bottleneck(s). Review recommendations below."
+    },
+    {
+      "id": "rec_1792065489647",
+      "projectId": "proj_ai_intelligence",
+      "timestamp": "2026-10-15T11:58:09.647Z",
+      "primaryTeam": null,
+      "backupTeams": [],
+      "solverStatus": "INFEASIBLE",
+      "solverTimeMs": 5.8,
+      "infeasibilityReasons": [
+        {
+          "role_id": "role_ml_lead",
+          "role_name": "Lead ML Scientist",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 1 qualified candidates have insufficient weekly capacity for 20.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        },
+        {
+          "role_id": "role_backend_eng",
+          "role_name": "FastAPI Backend Engineer",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 2 qualified candidates have insufficient weekly capacity for 15.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        }
+      ],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "Lead ML Scientist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (20.0h)",
+          "suitability_score": 65.2
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Data Pipeline Specialist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.5
+        }
+      ],
+      "explanation": "No feasible team could satisfy all hard constraints for 'AI Customer Intelligence Pipeline'. Found 2 constraint bottleneck(s). Review recommendations below."
+    },
+    {
+      "id": "rec_1792065492305",
+      "projectId": "proj_cloud_analytics",
+      "timestamp": "2026-10-15T11:58:12.305Z",
+      "primaryTeam": {
+        "team_label": "Primary Team",
+        "team_type": "primary",
+        "assigned_members": [
+          {
+            "employee_id": "emp_neha",
+            "employee_name": "Neha Gupta",
+            "role_id": "role_cloud_lead",
+            "role_name": "Cloud Solutions Architect",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "AWS": 4,
+              "Docker": 3
+            },
+            "verified_skills_used": [
+              "AWS"
+            ],
+            "individual_suitability_score": 73.1,
+            "utilization_before": 30,
+            "utilization_after": 67.5,
+            "workload_risk_before": 26,
+            "workload_risk_after": 37.2,
+            "experience_years": 4.2,
+            "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS, Docker; 4.2 yrs exp; Post-utilization 67.5%"
+          },
+          {
+            "employee_id": "emp_95",
+            "employee_name": "Swati Deshmukh 4",
+            "role_id": "role_data_lead",
+            "role_name": "Lead Data Engineer",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "Python": 4
+            },
+            "verified_skills_used": [],
+            "individual_suitability_score": 69.9,
+            "utilization_before": 37.5,
+            "utilization_after": 75,
+            "workload_risk_before": 15,
+            "workload_risk_after": 26.2,
+            "experience_years": 6,
+            "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+          },
+          {
+            "employee_id": "emp_anita",
+            "employee_name": "Anita Desai",
+            "role_id": "role_frontend_lead",
+            "role_name": "Frontend Architect",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "React": 5,
+              "TypeScript": 5
+            },
+            "verified_skills_used": [
+              "React",
+              "TypeScript"
+            ],
+            "individual_suitability_score": 87.8,
+            "utilization_before": 37.5,
+            "utilization_after": 75,
+            "workload_risk_before": 15,
+            "workload_risk_after": 26.2,
+            "experience_years": 6,
+            "decision_rationale": "Verified expertise in React, TypeScript; Covers key skills: React, TypeScript; 6.0 yrs exp; Post-utilization 75.0%"
+          }
+        ],
+        "total_score": 76.9,
+        "mandatory_skills_satisfied": true,
+        "preferred_skills_coverage": 50,
+        "missing_preferred_skills": [
+          "Data Analytics",
+          "SQL"
+        ],
+        "solver_status": "OPTIMAL",
+        "objective_value": 230.8,
+        "explanation": "CP-SAT solver achieved OPTIMAL team configuration in 53.9ms. 100% mandatory skills satisfied. Team suitability: 76.9/100. Preferred complementary skills coverage: 50.0%. Zero workload policy violations."
+      },
+      "backupTeams": [
+        {
+          "team_label": "Backup Team A",
+          "team_type": "backup_a",
+          "assigned_members": [
+            {
+              "employee_id": "emp_neha",
+              "employee_name": "Neha Gupta",
+              "role_id": "role_cloud_lead",
+              "role_name": "Cloud Solutions Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "AWS": 4,
+                "Docker": 3
+              },
+              "verified_skills_used": [
+                "AWS"
+              ],
+              "individual_suitability_score": 73.1,
+              "utilization_before": 30,
+              "utilization_after": 67.5,
+              "workload_risk_before": 26,
+              "workload_risk_after": 37.2,
+              "experience_years": 4.2,
+              "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS, Docker; 4.2 yrs exp; Post-utilization 67.5%"
+            },
+            {
+              "employee_id": "emp_85",
+              "employee_name": "Pooja Iyer 4",
+              "role_id": "role_data_lead",
+              "role_name": "Lead Data Engineer",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "Python": 4
+              },
+              "verified_skills_used": [],
+              "individual_suitability_score": 69.9,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_anita",
+              "employee_name": "Anita Desai",
+              "role_id": "role_frontend_lead",
+              "role_name": "Frontend Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "React": 5,
+                "TypeScript": 5
+              },
+              "verified_skills_used": [
+                "React",
+                "TypeScript"
+              ],
+              "individual_suitability_score": 87.8,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in React, TypeScript; Covers key skills: React, TypeScript; 6.0 yrs exp; Post-utilization 75.0%"
+            }
+          ],
+          "total_score": 76.9,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 75,
+          "missing_preferred_skills": [
+            "SQL"
+          ],
+          "solver_status": "OPTIMAL",
+          "objective_value": 230.8,
+          "explanation": "Alternative viable team offering high resilience. Team suitability: 76.9/100. Preferred skill coverage: 75.0%."
+        },
+        {
+          "team_label": "Backup Team B",
+          "team_type": "backup_b",
+          "assigned_members": [
+            {
+              "employee_id": "emp_85",
+              "employee_name": "Pooja Iyer 4",
+              "role_id": "role_cloud_lead",
+              "role_name": "Cloud Solutions Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "AWS": 5
+              },
+              "verified_skills_used": [
+                "AWS"
+              ],
+              "individual_suitability_score": 72.8,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_95",
+              "employee_name": "Swati Deshmukh 4",
+              "role_id": "role_data_lead",
+              "role_name": "Lead Data Engineer",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "Python": 4
+              },
+              "verified_skills_used": [],
+              "individual_suitability_score": 69.9,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_anita",
+              "employee_name": "Anita Desai",
+              "role_id": "role_frontend_lead",
+              "role_name": "Frontend Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "React": 5,
+                "TypeScript": 5
+              },
+              "verified_skills_used": [
+                "React",
+                "TypeScript"
+              ],
+              "individual_suitability_score": 87.8,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in React, TypeScript; Covers key skills: React, TypeScript; 6.0 yrs exp; Post-utilization 75.0%"
+            }
+          ],
+          "total_score": 76.8,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 50,
+          "missing_preferred_skills": [
+            "SQL",
+            "Docker"
+          ],
+          "solver_status": "OPTIMAL",
+          "objective_value": 230.5,
+          "explanation": "Contingency roster minimizing overlap with Primary Team. Team suitability: 76.8/100."
+        }
+      ],
+      "solverStatus": "OPTIMAL",
+      "solverTimeMs": 142.4,
+      "infeasibilityReasons": [],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_11",
+          "employee_name": "Rohan Mehta 1",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 4.0 yrs",
+          "suitability_score": 44.9
+        },
+        {
+          "employee_id": "emp_21",
+          "employee_name": "Aditya Malhotra 1",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 4.0 yrs",
+          "suitability_score": 37.6
+        },
+        {
+          "employee_id": "emp_27",
+          "employee_name": "Shweta Pandey 2",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (13.0h) < role hours (15.0h)",
+          "suitability_score": 61
+        },
+        {
+          "employee_id": "emp_43",
+          "employee_name": "Varun Joshi 2",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (12.0h) < role hours (15.0h)",
+          "suitability_score": 49
+        },
+        {
+          "employee_id": "emp_59",
+          "employee_name": "Siddharth Rao 3",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (11.0h) < role hours (15.0h)",
+          "suitability_score": 56.1
+        },
+        {
+          "employee_id": "emp_91",
+          "employee_name": "Manish Bansal 4",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 4.0 yrs",
+          "suitability_score": 37.6
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Lead Data Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.4
+        },
+        {
+          "employee_id": "emp_vikram",
+          "employee_name": "Vikram Singh",
+          "role_name": "Lead Data Engineer",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 3.2 yrs < required 3.5 yrs",
+          "suitability_score": 73.3
+        }
+      ],
+      "explanation": "Successfully synthesized Primary Team and 2 resilient backup alternative(s) using Google OR-Tools CP-SAT in 142.4ms. Primary team covers all 3 roles with 100% mandatory skill compliance and 50.0% complementary skill coverage."
+    },
+    {
+      "id": "rec_1792065493392",
+      "projectId": "proj_cloud_analytics",
+      "timestamp": "2026-10-15T11:58:13.392Z",
+      "primaryTeam": {
+        "team_label": "Primary Team",
+        "team_type": "primary",
+        "assigned_members": [
+          {
+            "employee_id": "emp_neha",
+            "employee_name": "Neha Gupta",
+            "role_id": "role_cloud_lead",
+            "role_name": "Cloud Solutions Architect",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "AWS": 4,
+              "Docker": 3
+            },
+            "verified_skills_used": [
+              "AWS"
+            ],
+            "individual_suitability_score": 73.1,
+            "utilization_before": 30,
+            "utilization_after": 67.5,
+            "workload_risk_before": 26,
+            "workload_risk_after": 37.2,
+            "experience_years": 4.2,
+            "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS, Docker; 4.2 yrs exp; Post-utilization 67.5%"
+          },
+          {
+            "employee_id": "emp_95",
+            "employee_name": "Swati Deshmukh 4",
+            "role_id": "role_data_lead",
+            "role_name": "Lead Data Engineer",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "Python": 4
+            },
+            "verified_skills_used": [],
+            "individual_suitability_score": 69.9,
+            "utilization_before": 37.5,
+            "utilization_after": 75,
+            "workload_risk_before": 15,
+            "workload_risk_after": 26.2,
+            "experience_years": 6,
+            "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+          },
+          {
+            "employee_id": "emp_anita",
+            "employee_name": "Anita Desai",
+            "role_id": "role_frontend_lead",
+            "role_name": "Frontend Architect",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "React": 5,
+              "TypeScript": 5
+            },
+            "verified_skills_used": [
+              "React",
+              "TypeScript"
+            ],
+            "individual_suitability_score": 87.8,
+            "utilization_before": 37.5,
+            "utilization_after": 75,
+            "workload_risk_before": 15,
+            "workload_risk_after": 26.2,
+            "experience_years": 6,
+            "decision_rationale": "Verified expertise in React, TypeScript; Covers key skills: React, TypeScript; 6.0 yrs exp; Post-utilization 75.0%"
+          }
+        ],
+        "total_score": 76.9,
+        "mandatory_skills_satisfied": true,
+        "preferred_skills_coverage": 50,
+        "missing_preferred_skills": [
+          "Data Analytics",
+          "SQL"
+        ],
+        "solver_status": "OPTIMAL",
+        "objective_value": 230.8,
+        "explanation": "CP-SAT solver achieved OPTIMAL team configuration in 18.5ms. 100% mandatory skills satisfied. Team suitability: 76.9/100. Preferred complementary skills coverage: 50.0%. Zero workload policy violations."
+      },
+      "backupTeams": [
+        {
+          "team_label": "Backup Team A",
+          "team_type": "backup_a",
+          "assigned_members": [
+            {
+              "employee_id": "emp_neha",
+              "employee_name": "Neha Gupta",
+              "role_id": "role_cloud_lead",
+              "role_name": "Cloud Solutions Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "AWS": 4,
+                "Docker": 3
+              },
+              "verified_skills_used": [
+                "AWS"
+              ],
+              "individual_suitability_score": 73.1,
+              "utilization_before": 30,
+              "utilization_after": 67.5,
+              "workload_risk_before": 26,
+              "workload_risk_after": 37.2,
+              "experience_years": 4.2,
+              "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS, Docker; 4.2 yrs exp; Post-utilization 67.5%"
+            },
+            {
+              "employee_id": "emp_85",
+              "employee_name": "Pooja Iyer 4",
+              "role_id": "role_data_lead",
+              "role_name": "Lead Data Engineer",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "Python": 4
+              },
+              "verified_skills_used": [],
+              "individual_suitability_score": 69.9,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_anita",
+              "employee_name": "Anita Desai",
+              "role_id": "role_frontend_lead",
+              "role_name": "Frontend Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "React": 5,
+                "TypeScript": 5
+              },
+              "verified_skills_used": [
+                "React",
+                "TypeScript"
+              ],
+              "individual_suitability_score": 87.8,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in React, TypeScript; Covers key skills: React, TypeScript; 6.0 yrs exp; Post-utilization 75.0%"
+            }
+          ],
+          "total_score": 76.9,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 75,
+          "missing_preferred_skills": [
+            "SQL"
+          ],
+          "solver_status": "OPTIMAL",
+          "objective_value": 230.8,
+          "explanation": "Alternative viable team offering high resilience. Team suitability: 76.9/100. Preferred skill coverage: 75.0%."
+        },
+        {
+          "team_label": "Backup Team B",
+          "team_type": "backup_b",
+          "assigned_members": [
+            {
+              "employee_id": "emp_85",
+              "employee_name": "Pooja Iyer 4",
+              "role_id": "role_cloud_lead",
+              "role_name": "Cloud Solutions Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "AWS": 5
+              },
+              "verified_skills_used": [
+                "AWS"
+              ],
+              "individual_suitability_score": 72.8,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_95",
+              "employee_name": "Swati Deshmukh 4",
+              "role_id": "role_data_lead",
+              "role_name": "Lead Data Engineer",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "Python": 4
+              },
+              "verified_skills_used": [],
+              "individual_suitability_score": 69.9,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_anita",
+              "employee_name": "Anita Desai",
+              "role_id": "role_frontend_lead",
+              "role_name": "Frontend Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "React": 5,
+                "TypeScript": 5
+              },
+              "verified_skills_used": [
+                "React",
+                "TypeScript"
+              ],
+              "individual_suitability_score": 87.8,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in React, TypeScript; Covers key skills: React, TypeScript; 6.0 yrs exp; Post-utilization 75.0%"
+            }
+          ],
+          "total_score": 76.8,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 50,
+          "missing_preferred_skills": [
+            "SQL",
+            "Docker"
+          ],
+          "solver_status": "OPTIMAL",
+          "objective_value": 230.5,
+          "explanation": "Contingency roster minimizing overlap with Primary Team. Team suitability: 76.8/100."
+        }
+      ],
+      "solverStatus": "OPTIMAL",
+      "solverTimeMs": 79.8,
+      "infeasibilityReasons": [],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_11",
+          "employee_name": "Rohan Mehta 1",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 4.0 yrs",
+          "suitability_score": 44.9
+        },
+        {
+          "employee_id": "emp_21",
+          "employee_name": "Aditya Malhotra 1",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 4.0 yrs",
+          "suitability_score": 37.6
+        },
+        {
+          "employee_id": "emp_27",
+          "employee_name": "Shweta Pandey 2",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (13.0h) < role hours (15.0h)",
+          "suitability_score": 61
+        },
+        {
+          "employee_id": "emp_43",
+          "employee_name": "Varun Joshi 2",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (12.0h) < role hours (15.0h)",
+          "suitability_score": 49
+        },
+        {
+          "employee_id": "emp_59",
+          "employee_name": "Siddharth Rao 3",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (11.0h) < role hours (15.0h)",
+          "suitability_score": 56.1
+        },
+        {
+          "employee_id": "emp_91",
+          "employee_name": "Manish Bansal 4",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 4.0 yrs",
+          "suitability_score": 37.6
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Lead Data Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.4
+        },
+        {
+          "employee_id": "emp_vikram",
+          "employee_name": "Vikram Singh",
+          "role_name": "Lead Data Engineer",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 3.2 yrs < required 3.5 yrs",
+          "suitability_score": 73.3
+        }
+      ],
+      "explanation": "Successfully synthesized Primary Team and 2 resilient backup alternative(s) using Google OR-Tools CP-SAT in 79.8ms. Primary team covers all 3 roles with 100% mandatory skill compliance and 50.0% complementary skill coverage."
+    },
+    {
+      "id": "rec_1792065495564",
+      "projectId": "proj_zero_trust",
+      "timestamp": "2026-10-15T11:58:15.564Z",
+      "primaryTeam": {
+        "team_label": "Primary Team",
+        "team_type": "primary",
+        "assigned_members": [
+          {
+            "employee_id": "emp_25",
+            "employee_name": "Gaurav Bhatia 2",
+            "role_id": "role_sec_lead",
+            "role_name": "Lead Security Engineer",
+            "assigned_hours": 10,
+            "skills_covered": {
+              "Cybersecurity": 4
+            },
+            "verified_skills_used": [],
+            "individual_suitability_score": 75.7,
+            "utilization_before": 12.5,
+            "utilization_after": 37.5,
+            "workload_risk_before": 12,
+            "workload_risk_after": 19.5,
+            "experience_years": 6,
+            "decision_rationale": "Covers key skills: Cybersecurity; 6.0 yrs exp; Post-utilization 37.5%"
+          },
+          {
+            "employee_id": "emp_29",
+            "employee_name": "Pranav Ghosh 2",
+            "role_id": "role_devops_eng",
+            "role_name": "Platform DevOps Specialist",
+            "assigned_hours": 10,
+            "skills_covered": {
+              "DevOps": 3,
+              "Docker": 3,
+              "Kubernetes": 4
+            },
+            "verified_skills_used": [
+              "DevOps",
+              "Kubernetes"
+            ],
+            "individual_suitability_score": 74.2,
+            "utilization_before": 72.5,
+            "utilization_after": 97.5,
+            "workload_risk_before": 59,
+            "workload_risk_after": 66.5,
+            "experience_years": 9.6,
+            "decision_rationale": "Verified expertise in DevOps, Kubernetes; Covers key skills: DevOps, Docker, Kubernetes; 9.6 yrs exp; Post-utilization 97.5%"
+          }
+        ],
+        "total_score": 75,
+        "mandatory_skills_satisfied": true,
+        "preferred_skills_coverage": 100,
+        "missing_preferred_skills": [],
+        "solver_status": "OPTIMAL",
+        "objective_value": 149.9,
+        "explanation": "CP-SAT solver achieved OPTIMAL team configuration in 22.2ms. 100% mandatory skills satisfied. Team suitability: 75.0/100. Preferred complementary skills coverage: 100.0%. Zero workload policy violations."
+      },
+      "backupTeams": [
+        {
+          "team_label": "Backup Team A",
+          "team_type": "backup_a",
+          "assigned_members": [
+            {
+              "employee_id": "emp_19",
+              "employee_name": "Deepak Agarwal 1",
+              "role_id": "role_sec_lead",
+              "role_name": "Lead Security Engineer",
+              "assigned_hours": 10,
+              "skills_covered": {
+                "Cybersecurity": 4
+              },
+              "verified_skills_used": [],
+              "individual_suitability_score": 68.2,
+              "utilization_before": 47.5,
+              "utilization_after": 72.5,
+              "workload_risk_before": 49,
+              "workload_risk_after": 56.5,
+              "experience_years": 9.6,
+              "decision_rationale": "Covers key skills: Cybersecurity; 9.6 yrs exp; Post-utilization 72.5%"
+            },
+            {
+              "employee_id": "emp_29",
+              "employee_name": "Pranav Ghosh 2",
+              "role_id": "role_devops_eng",
+              "role_name": "Platform DevOps Specialist",
+              "assigned_hours": 10,
+              "skills_covered": {
+                "DevOps": 3,
+                "Docker": 3,
+                "Kubernetes": 4
+              },
+              "verified_skills_used": [
+                "DevOps",
+                "Kubernetes"
+              ],
+              "individual_suitability_score": 74.2,
+              "utilization_before": 72.5,
+              "utilization_after": 97.5,
+              "workload_risk_before": 59,
+              "workload_risk_after": 66.5,
+              "experience_years": 9.6,
+              "decision_rationale": "Verified expertise in DevOps, Kubernetes; Covers key skills: DevOps, Docker, Kubernetes; 9.6 yrs exp; Post-utilization 97.5%"
+            }
+          ],
+          "total_score": 71.2,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 50,
+          "missing_preferred_skills": [
+            "Cloud Computing"
+          ],
+          "solver_status": "OPTIMAL",
+          "objective_value": 142.4,
+          "explanation": "Alternative viable team offering high resilience. Team suitability: 71.2/100. Preferred skill coverage: 50.0%."
+        },
+        {
+          "team_label": "Backup Team B",
+          "team_type": "backup_b",
+          "assigned_members": [
+            {
+              "employee_id": "emp_67",
+              "employee_name": "Shalini Sen 3",
+              "role_id": "role_sec_lead",
+              "role_name": "Lead Security Engineer",
+              "assigned_hours": 10,
+              "skills_covered": {
+                "Cybersecurity": 4
+              },
+              "verified_skills_used": [],
+              "individual_suitability_score": 68,
+              "utilization_before": 55,
+              "utilization_after": 80,
+              "workload_risk_before": 37,
+              "workload_risk_after": 44.5,
+              "experience_years": 7.8,
+              "decision_rationale": "Covers key skills: Cybersecurity; 7.8 yrs exp; Post-utilization 80.0%"
+            },
+            {
+              "employee_id": "emp_29",
+              "employee_name": "Pranav Ghosh 2",
+              "role_id": "role_devops_eng",
+              "role_name": "Platform DevOps Specialist",
+              "assigned_hours": 10,
+              "skills_covered": {
+                "DevOps": 3,
+                "Docker": 3,
+                "Kubernetes": 4
+              },
+              "verified_skills_used": [
+                "DevOps",
+                "Kubernetes"
+              ],
+              "individual_suitability_score": 74.2,
+              "utilization_before": 72.5,
+              "utilization_after": 97.5,
+              "workload_risk_before": 59,
+              "workload_risk_after": 66.5,
+              "experience_years": 9.6,
+              "decision_rationale": "Verified expertise in DevOps, Kubernetes; Covers key skills: DevOps, Docker, Kubernetes; 9.6 yrs exp; Post-utilization 97.5%"
+            }
+          ],
+          "total_score": 71.1,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 50,
+          "missing_preferred_skills": [
+            "Cloud Computing"
+          ],
+          "solver_status": "OPTIMAL",
+          "objective_value": 142.2,
+          "explanation": "Contingency roster minimizing overlap with Primary Team. Team suitability: 71.1/100."
+        }
+      ],
+      "solverStatus": "OPTIMAL",
+      "solverTimeMs": 50.6,
+      "infeasibilityReasons": [],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_41",
+          "employee_name": "Manish Bansal 2",
+          "role_name": "Lead Security Engineer",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 4.0 yrs",
+          "suitability_score": 56.9
+        }
+      ],
+      "explanation": "Successfully synthesized Primary Team and 2 resilient backup alternative(s) using Google OR-Tools CP-SAT in 50.6ms. Primary team covers all 2 roles with 100% mandatory skill compliance and 100.0% complementary skill coverage."
+    },
+    {
+      "id": "rec_1792065496766",
+      "projectId": "proj_zero_trust",
+      "timestamp": "2026-10-15T11:58:16.766Z",
+      "primaryTeam": {
+        "team_label": "Primary Team",
+        "team_type": "primary",
+        "assigned_members": [
+          {
+            "employee_id": "emp_25",
+            "employee_name": "Gaurav Bhatia 2",
+            "role_id": "role_sec_lead",
+            "role_name": "Lead Security Engineer",
+            "assigned_hours": 10,
+            "skills_covered": {
+              "Cybersecurity": 4
+            },
+            "verified_skills_used": [],
+            "individual_suitability_score": 75.7,
+            "utilization_before": 12.5,
+            "utilization_after": 37.5,
+            "workload_risk_before": 12,
+            "workload_risk_after": 19.5,
+            "experience_years": 6,
+            "decision_rationale": "Covers key skills: Cybersecurity; 6.0 yrs exp; Post-utilization 37.5%"
+          },
+          {
+            "employee_id": "emp_29",
+            "employee_name": "Pranav Ghosh 2",
+            "role_id": "role_devops_eng",
+            "role_name": "Platform DevOps Specialist",
+            "assigned_hours": 10,
+            "skills_covered": {
+              "DevOps": 3,
+              "Docker": 3,
+              "Kubernetes": 4
+            },
+            "verified_skills_used": [
+              "DevOps",
+              "Kubernetes"
+            ],
+            "individual_suitability_score": 74.2,
+            "utilization_before": 72.5,
+            "utilization_after": 97.5,
+            "workload_risk_before": 59,
+            "workload_risk_after": 66.5,
+            "experience_years": 9.6,
+            "decision_rationale": "Verified expertise in DevOps, Kubernetes; Covers key skills: DevOps, Docker, Kubernetes; 9.6 yrs exp; Post-utilization 97.5%"
+          }
+        ],
+        "total_score": 75,
+        "mandatory_skills_satisfied": true,
+        "preferred_skills_coverage": 100,
+        "missing_preferred_skills": [],
+        "solver_status": "OPTIMAL",
+        "objective_value": 149.9,
+        "explanation": "CP-SAT solver achieved OPTIMAL team configuration in 28.8ms. 100% mandatory skills satisfied. Team suitability: 75.0/100. Preferred complementary skills coverage: 100.0%. Zero workload policy violations."
+      },
+      "backupTeams": [
+        {
+          "team_label": "Backup Team A",
+          "team_type": "backup_a",
+          "assigned_members": [
+            {
+              "employee_id": "emp_19",
+              "employee_name": "Deepak Agarwal 1",
+              "role_id": "role_sec_lead",
+              "role_name": "Lead Security Engineer",
+              "assigned_hours": 10,
+              "skills_covered": {
+                "Cybersecurity": 4
+              },
+              "verified_skills_used": [],
+              "individual_suitability_score": 68.2,
+              "utilization_before": 47.5,
+              "utilization_after": 72.5,
+              "workload_risk_before": 49,
+              "workload_risk_after": 56.5,
+              "experience_years": 9.6,
+              "decision_rationale": "Covers key skills: Cybersecurity; 9.6 yrs exp; Post-utilization 72.5%"
+            },
+            {
+              "employee_id": "emp_29",
+              "employee_name": "Pranav Ghosh 2",
+              "role_id": "role_devops_eng",
+              "role_name": "Platform DevOps Specialist",
+              "assigned_hours": 10,
+              "skills_covered": {
+                "DevOps": 3,
+                "Docker": 3,
+                "Kubernetes": 4
+              },
+              "verified_skills_used": [
+                "DevOps",
+                "Kubernetes"
+              ],
+              "individual_suitability_score": 74.2,
+              "utilization_before": 72.5,
+              "utilization_after": 97.5,
+              "workload_risk_before": 59,
+              "workload_risk_after": 66.5,
+              "experience_years": 9.6,
+              "decision_rationale": "Verified expertise in DevOps, Kubernetes; Covers key skills: DevOps, Docker, Kubernetes; 9.6 yrs exp; Post-utilization 97.5%"
+            }
+          ],
+          "total_score": 71.2,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 50,
+          "missing_preferred_skills": [
+            "Cloud Computing"
+          ],
+          "solver_status": "OPTIMAL",
+          "objective_value": 142.4,
+          "explanation": "Alternative viable team offering high resilience. Team suitability: 71.2/100. Preferred skill coverage: 50.0%."
+        },
+        {
+          "team_label": "Backup Team B",
+          "team_type": "backup_b",
+          "assigned_members": [
+            {
+              "employee_id": "emp_67",
+              "employee_name": "Shalini Sen 3",
+              "role_id": "role_sec_lead",
+              "role_name": "Lead Security Engineer",
+              "assigned_hours": 10,
+              "skills_covered": {
+                "Cybersecurity": 4
+              },
+              "verified_skills_used": [],
+              "individual_suitability_score": 68,
+              "utilization_before": 55,
+              "utilization_after": 80,
+              "workload_risk_before": 37,
+              "workload_risk_after": 44.5,
+              "experience_years": 7.8,
+              "decision_rationale": "Covers key skills: Cybersecurity; 7.8 yrs exp; Post-utilization 80.0%"
+            },
+            {
+              "employee_id": "emp_29",
+              "employee_name": "Pranav Ghosh 2",
+              "role_id": "role_devops_eng",
+              "role_name": "Platform DevOps Specialist",
+              "assigned_hours": 10,
+              "skills_covered": {
+                "DevOps": 3,
+                "Docker": 3,
+                "Kubernetes": 4
+              },
+              "verified_skills_used": [
+                "DevOps",
+                "Kubernetes"
+              ],
+              "individual_suitability_score": 74.2,
+              "utilization_before": 72.5,
+              "utilization_after": 97.5,
+              "workload_risk_before": 59,
+              "workload_risk_after": 66.5,
+              "experience_years": 9.6,
+              "decision_rationale": "Verified expertise in DevOps, Kubernetes; Covers key skills: DevOps, Docker, Kubernetes; 9.6 yrs exp; Post-utilization 97.5%"
+            }
+          ],
+          "total_score": 71.1,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 50,
+          "missing_preferred_skills": [
+            "Cloud Computing"
+          ],
+          "solver_status": "OPTIMAL",
+          "objective_value": 142.2,
+          "explanation": "Contingency roster minimizing overlap with Primary Team. Team suitability: 71.1/100."
+        }
+      ],
+      "solverStatus": "OPTIMAL",
+      "solverTimeMs": 87.9,
+      "infeasibilityReasons": [],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_41",
+          "employee_name": "Manish Bansal 2",
+          "role_name": "Lead Security Engineer",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 4.0 yrs",
+          "suitability_score": 56.9
+        }
+      ],
+      "explanation": "Successfully synthesized Primary Team and 2 resilient backup alternative(s) using Google OR-Tools CP-SAT in 87.9ms. Primary team covers all 2 roles with 100% mandatory skill compliance and 100.0% complementary skill coverage."
+    },
+    {
+      "id": "rec_1792065499334",
+      "projectId": "proj_1792059788703",
+      "timestamp": "2026-10-15T11:58:19.334Z",
+      "primaryTeam": {
+        "team_label": "Primary Team",
+        "team_type": "primary",
+        "assigned_members": [
+          {
+            "employee_id": "emp_85",
+            "employee_name": "Pooja Iyer 4",
+            "role_id": "slot_1",
+            "role_name": "Cloud Solutions Architect",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "AWS": 5
+            },
+            "verified_skills_used": [
+              "AWS"
+            ],
+            "individual_suitability_score": 74.9,
+            "utilization_before": 37.5,
+            "utilization_after": 75,
+            "workload_risk_before": 15,
+            "workload_risk_after": 26.2,
+            "experience_years": 6,
+            "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS; 6.0 yrs exp; Post-utilization 75.0%"
+          },
+          {
+            "employee_id": "emp_95",
+            "employee_name": "Swati Deshmukh 4",
+            "role_id": "slot_2",
+            "role_name": "Lead Data Engineer",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "Python": 4
+            },
+            "verified_skills_used": [],
+            "individual_suitability_score": 72.8,
+            "utilization_before": 37.5,
+            "utilization_after": 75,
+            "workload_risk_before": 15,
+            "workload_risk_after": 26.2,
+            "experience_years": 6,
+            "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+          }
+        ],
+        "total_score": 73.8,
+        "mandatory_skills_satisfied": true,
+        "preferred_skills_coverage": 100,
+        "missing_preferred_skills": [],
+        "solver_status": "OPTIMAL",
+        "objective_value": 147.7,
+        "explanation": "CP-SAT solver achieved OPTIMAL team configuration in 19.6ms. 100% mandatory skills satisfied. Team suitability: 73.8/100. Preferred complementary skills coverage: 100.0%. Zero workload policy violations."
+      },
+      "backupTeams": [
+        {
+          "team_label": "Backup Team A",
+          "team_type": "backup_a",
+          "assigned_members": [
+            {
+              "employee_id": "emp_95",
+              "employee_name": "Swati Deshmukh 4",
+              "role_id": "slot_1",
+              "role_name": "Cloud Solutions Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "AWS": 5
+              },
+              "verified_skills_used": [
+                "AWS"
+              ],
+              "individual_suitability_score": 74.9,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_85",
+              "employee_name": "Pooja Iyer 4",
+              "role_id": "slot_2",
+              "role_name": "Lead Data Engineer",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "Python": 4
+              },
+              "verified_skills_used": [],
+              "individual_suitability_score": 72.8,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+            }
+          ],
+          "total_score": 73.8,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 100,
+          "missing_preferred_skills": [],
+          "solver_status": "OPTIMAL",
+          "objective_value": 147.7,
+          "explanation": "Alternative viable team offering high resilience. Team suitability: 73.8/100. Preferred skill coverage: 100.0%."
+        },
+        {
+          "team_label": "Backup Team B",
+          "team_type": "backup_b",
+          "assigned_members": [
+            {
+              "employee_id": "emp_85",
+              "employee_name": "Pooja Iyer 4",
+              "role_id": "slot_1",
+              "role_name": "Cloud Solutions Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "AWS": 5
+              },
+              "verified_skills_used": [
+                "AWS"
+              ],
+              "individual_suitability_score": 74.9,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_vikram",
+              "employee_name": "Vikram Singh",
+              "role_id": "slot_2",
+              "role_name": "Lead Data Engineer",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "Python": 4
+              },
+              "verified_skills_used": [
+                "Python"
+              ],
+              "individual_suitability_score": 69.9,
+              "utilization_before": 25,
+              "utilization_after": 62.5,
+              "workload_risk_before": 22,
+              "workload_risk_after": 33.2,
+              "experience_years": 3.2,
+              "decision_rationale": "Verified expertise in Python; Covers key skills: Python; 3.2 yrs exp; Post-utilization 62.5%"
+            }
+          ],
+          "total_score": 72.4,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 100,
+          "missing_preferred_skills": [],
+          "solver_status": "OPTIMAL",
+          "objective_value": 144.8,
+          "explanation": "Contingency roster minimizing overlap with Primary Team. Team suitability: 72.4/100."
+        }
+      ],
+      "solverStatus": "OPTIMAL",
+      "solverTimeMs": 81.3,
+      "infeasibilityReasons": [],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_11",
+          "employee_name": "Rohan Mehta 1",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 3.5 yrs",
+          "suitability_score": 45.7
+        },
+        {
+          "employee_id": "emp_21",
+          "employee_name": "Aditya Malhotra 1",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 3.5 yrs",
+          "suitability_score": 38.5
+        },
+        {
+          "employee_id": "emp_27",
+          "employee_name": "Shweta Pandey 2",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (13.0h) < role hours (15.0h)",
+          "suitability_score": 61.5
+        },
+        {
+          "employee_id": "emp_43",
+          "employee_name": "Varun Joshi 2",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (12.0h) < role hours (15.0h)",
+          "suitability_score": 50.5
+        },
+        {
+          "employee_id": "emp_59",
+          "employee_name": "Siddharth Rao 3",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (11.0h) < role hours (15.0h)",
+          "suitability_score": 56.1
+        },
+        {
+          "employee_id": "emp_91",
+          "employee_name": "Manish Bansal 4",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 3.5 yrs",
+          "suitability_score": 38.5
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Lead Data Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 71
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "Lead Data Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 69.3
+        }
+      ],
+      "explanation": "Successfully synthesized Primary Team and 2 resilient backup alternative(s) using Google OR-Tools CP-SAT in 81.3ms. Primary team covers all 2 roles with 100% mandatory skill compliance and 100.0% complementary skill coverage."
+    },
+    {
+      "id": "rec_1792065500639",
+      "projectId": "proj_1792059788703",
+      "timestamp": "2026-10-15T11:58:20.639Z",
+      "primaryTeam": {
+        "team_label": "Primary Team",
+        "team_type": "primary",
+        "assigned_members": [
+          {
+            "employee_id": "emp_85",
+            "employee_name": "Pooja Iyer 4",
+            "role_id": "slot_1",
+            "role_name": "Cloud Solutions Architect",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "AWS": 5
+            },
+            "verified_skills_used": [
+              "AWS"
+            ],
+            "individual_suitability_score": 74.9,
+            "utilization_before": 37.5,
+            "utilization_after": 75,
+            "workload_risk_before": 15,
+            "workload_risk_after": 26.2,
+            "experience_years": 6,
+            "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS; 6.0 yrs exp; Post-utilization 75.0%"
+          },
+          {
+            "employee_id": "emp_95",
+            "employee_name": "Swati Deshmukh 4",
+            "role_id": "slot_2",
+            "role_name": "Lead Data Engineer",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "Python": 4
+            },
+            "verified_skills_used": [],
+            "individual_suitability_score": 72.8,
+            "utilization_before": 37.5,
+            "utilization_after": 75,
+            "workload_risk_before": 15,
+            "workload_risk_after": 26.2,
+            "experience_years": 6,
+            "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+          }
+        ],
+        "total_score": 73.8,
+        "mandatory_skills_satisfied": true,
+        "preferred_skills_coverage": 100,
+        "missing_preferred_skills": [],
+        "solver_status": "OPTIMAL",
+        "objective_value": 147.7,
+        "explanation": "CP-SAT solver achieved OPTIMAL team configuration in 28.1ms. 100% mandatory skills satisfied. Team suitability: 73.8/100. Preferred complementary skills coverage: 100.0%. Zero workload policy violations."
+      },
+      "backupTeams": [
+        {
+          "team_label": "Backup Team A",
+          "team_type": "backup_a",
+          "assigned_members": [
+            {
+              "employee_id": "emp_95",
+              "employee_name": "Swati Deshmukh 4",
+              "role_id": "slot_1",
+              "role_name": "Cloud Solutions Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "AWS": 5
+              },
+              "verified_skills_used": [
+                "AWS"
+              ],
+              "individual_suitability_score": 74.9,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_85",
+              "employee_name": "Pooja Iyer 4",
+              "role_id": "slot_2",
+              "role_name": "Lead Data Engineer",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "Python": 4
+              },
+              "verified_skills_used": [],
+              "individual_suitability_score": 72.8,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+            }
+          ],
+          "total_score": 73.8,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 100,
+          "missing_preferred_skills": [],
+          "solver_status": "OPTIMAL",
+          "objective_value": 147.7,
+          "explanation": "Alternative viable team offering high resilience. Team suitability: 73.8/100. Preferred skill coverage: 100.0%."
+        },
+        {
+          "team_label": "Backup Team B",
+          "team_type": "backup_b",
+          "assigned_members": [
+            {
+              "employee_id": "emp_85",
+              "employee_name": "Pooja Iyer 4",
+              "role_id": "slot_1",
+              "role_name": "Cloud Solutions Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "AWS": 5
+              },
+              "verified_skills_used": [
+                "AWS"
+              ],
+              "individual_suitability_score": 74.9,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_vikram",
+              "employee_name": "Vikram Singh",
+              "role_id": "slot_2",
+              "role_name": "Lead Data Engineer",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "Python": 4
+              },
+              "verified_skills_used": [
+                "Python"
+              ],
+              "individual_suitability_score": 69.9,
+              "utilization_before": 25,
+              "utilization_after": 62.5,
+              "workload_risk_before": 22,
+              "workload_risk_after": 33.2,
+              "experience_years": 3.2,
+              "decision_rationale": "Verified expertise in Python; Covers key skills: Python; 3.2 yrs exp; Post-utilization 62.5%"
+            }
+          ],
+          "total_score": 72.4,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 100,
+          "missing_preferred_skills": [],
+          "solver_status": "OPTIMAL",
+          "objective_value": 144.8,
+          "explanation": "Contingency roster minimizing overlap with Primary Team. Team suitability: 72.4/100."
+        }
+      ],
+      "solverStatus": "OPTIMAL",
+      "solverTimeMs": 103.2,
+      "infeasibilityReasons": [],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_11",
+          "employee_name": "Rohan Mehta 1",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 3.5 yrs",
+          "suitability_score": 45.7
+        },
+        {
+          "employee_id": "emp_21",
+          "employee_name": "Aditya Malhotra 1",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 3.5 yrs",
+          "suitability_score": 38.5
+        },
+        {
+          "employee_id": "emp_27",
+          "employee_name": "Shweta Pandey 2",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (13.0h) < role hours (15.0h)",
+          "suitability_score": 61.5
+        },
+        {
+          "employee_id": "emp_43",
+          "employee_name": "Varun Joshi 2",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (12.0h) < role hours (15.0h)",
+          "suitability_score": 50.5
+        },
+        {
+          "employee_id": "emp_59",
+          "employee_name": "Siddharth Rao 3",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (11.0h) < role hours (15.0h)",
+          "suitability_score": 56.1
+        },
+        {
+          "employee_id": "emp_91",
+          "employee_name": "Manish Bansal 4",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 3.5 yrs",
+          "suitability_score": 38.5
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Lead Data Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 71
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "Lead Data Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 69.3
+        }
+      ],
+      "explanation": "Successfully synthesized Primary Team and 2 resilient backup alternative(s) using Google OR-Tools CP-SAT in 103.2ms. Primary team covers all 2 roles with 100% mandatory skill compliance and 100.0% complementary skill coverage."
+    },
+    {
+      "id": "rec_1792065573331",
+      "projectId": "proj_ai_intelligence",
+      "timestamp": "2026-10-15T11:59:33.331Z",
+      "primaryTeam": null,
+      "backupTeams": [],
+      "solverStatus": "INFEASIBLE",
+      "solverTimeMs": 10.8,
+      "infeasibilityReasons": [
+        {
+          "role_id": "role_ml_lead",
+          "role_name": "Lead ML Scientist",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 1 qualified candidates have insufficient weekly capacity for 20.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        },
+        {
+          "role_id": "role_backend_eng",
+          "role_name": "FastAPI Backend Engineer",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 2 qualified candidates have insufficient weekly capacity for 15.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        }
+      ],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "Lead ML Scientist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (20.0h)",
+          "suitability_score": 65.2
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Data Pipeline Specialist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.5
+        }
+      ],
+      "explanation": "No feasible team could satisfy all hard constraints for 'AI Customer Intelligence Pipeline'. Found 2 constraint bottleneck(s). Review recommendations below."
+    },
+    {
+      "id": "rec_1792065573343",
+      "projectId": "proj_ai_intelligence",
+      "timestamp": "2026-10-15T11:59:33.343Z",
+      "primaryTeam": null,
+      "backupTeams": [],
+      "solverStatus": "INFEASIBLE",
+      "solverTimeMs": 13.2,
+      "infeasibilityReasons": [
+        {
+          "role_id": "role_ml_lead",
+          "role_name": "Lead ML Scientist",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 1 qualified candidates have insufficient weekly capacity for 20.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        },
+        {
+          "role_id": "role_backend_eng",
+          "role_name": "FastAPI Backend Engineer",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 2 qualified candidates have insufficient weekly capacity for 15.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        }
+      ],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "Lead ML Scientist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (20.0h)",
+          "suitability_score": 65.2
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Data Pipeline Specialist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.5
+        }
+      ],
+      "explanation": "No feasible team could satisfy all hard constraints for 'AI Customer Intelligence Pipeline'. Found 2 constraint bottleneck(s). Review recommendations below."
+    },
+    {
+      "id": "rec_1792065622228",
+      "projectId": "proj_ai_intelligence",
+      "timestamp": "2026-10-15T12:00:22.228Z",
+      "primaryTeam": null,
+      "backupTeams": [],
+      "solverStatus": "INFEASIBLE",
+      "solverTimeMs": 11.9,
+      "infeasibilityReasons": [
+        {
+          "role_id": "role_ml_lead",
+          "role_name": "Lead ML Scientist",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 1 qualified candidates have insufficient weekly capacity for 20.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        },
+        {
+          "role_id": "role_backend_eng",
+          "role_name": "FastAPI Backend Engineer",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 2 qualified candidates have insufficient weekly capacity for 15.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        }
+      ],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "Lead ML Scientist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (20.0h)",
+          "suitability_score": 65.2
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Data Pipeline Specialist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.5
+        }
+      ],
+      "explanation": "No feasible team could satisfy all hard constraints for 'AI Customer Intelligence Pipeline'. Found 2 constraint bottleneck(s). Review recommendations below."
+    },
+    {
+      "id": "rec_1792065622239",
+      "projectId": "proj_ai_intelligence",
+      "timestamp": "2026-10-15T12:00:22.239Z",
+      "primaryTeam": null,
+      "backupTeams": [],
+      "solverStatus": "INFEASIBLE",
+      "solverTimeMs": 12.8,
+      "infeasibilityReasons": [
+        {
+          "role_id": "role_ml_lead",
+          "role_name": "Lead ML Scientist",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 1 qualified candidates have insufficient weekly capacity for 20.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        },
+        {
+          "role_id": "role_backend_eng",
+          "role_name": "FastAPI Backend Engineer",
+          "constraint_type": "CAPACITY_CONSTRAINT",
+          "description": "All 2 qualified candidates have insufficient weekly capacity for 15.0h/week.",
+          "suggested_action": "Reduce weekly hours allocation for this role or release overlapping low-priority assignments."
+        }
+      ],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "Lead ML Scientist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (20.0h)",
+          "suitability_score": 65.2
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Data Pipeline Specialist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.5
+        }
+      ],
+      "explanation": "No feasible team could satisfy all hard constraints for 'AI Customer Intelligence Pipeline'. Found 2 constraint bottleneck(s). Review recommendations below."
+    },
+    {
+      "id": "rec_1792065657571",
+      "projectId": "proj_ai_intelligence",
+      "timestamp": "2026-10-15T12:00:57.571Z",
+      "primaryTeam": null,
+      "backupTeams": [],
+      "solverStatus": "INFEASIBLE",
+      "solverTimeMs": 6.9,
+      "infeasibilityReasons": [],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Data Pipeline Specialist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.5
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "Lead ML Scientist",
+          "reason_code": "UNAVAILABLE_OR_LEAVE",
+          "explanation": "Currently on leave or declared unavailable.",
+          "suitability_score": 57.5
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "UNAVAILABLE_OR_LEAVE",
+          "explanation": "Currently on leave or declared unavailable.",
+          "suitability_score": 52.5
+        }
+      ],
+      "explanation": "No feasible team could satisfy all hard constraints for 'AI Customer Intelligence Pipeline'. Found 0 constraint bottleneck(s). Review recommendations below."
+    },
+    {
+      "id": "rec_1792065657581",
+      "projectId": "proj_ai_intelligence",
+      "timestamp": "2026-10-15T12:00:57.581Z",
+      "primaryTeam": null,
+      "backupTeams": [],
+      "solverStatus": "INFEASIBLE",
+      "solverTimeMs": 12.8,
+      "infeasibilityReasons": [],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Data Pipeline Specialist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.5
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "Lead ML Scientist",
+          "reason_code": "UNAVAILABLE_OR_LEAVE",
+          "explanation": "Currently on leave or declared unavailable.",
+          "suitability_score": 57.5
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "UNAVAILABLE_OR_LEAVE",
+          "explanation": "Currently on leave or declared unavailable.",
+          "suitability_score": 52.5
+        }
+      ],
+      "explanation": "No feasible team could satisfy all hard constraints for 'AI Customer Intelligence Pipeline'. Found 0 constraint bottleneck(s). Review recommendations below."
+    },
+    {
+      "id": "rec_1792065660902",
+      "projectId": "proj_cloud_analytics",
+      "timestamp": "2026-10-15T12:01:00.902Z",
+      "primaryTeam": {
+        "team_label": "Primary Team",
+        "team_type": "primary",
+        "assigned_members": [
+          {
+            "employee_id": "emp_neha",
+            "employee_name": "Neha Gupta",
+            "role_id": "role_cloud_lead",
+            "role_name": "Cloud Solutions Architect",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "AWS": 4,
+              "Docker": 3
+            },
+            "verified_skills_used": [
+              "AWS"
+            ],
+            "individual_suitability_score": 73.1,
+            "utilization_before": 30,
+            "utilization_after": 67.5,
+            "workload_risk_before": 26,
+            "workload_risk_after": 37.2,
+            "experience_years": 4.2,
+            "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS, Docker; 4.2 yrs exp; Post-utilization 67.5%"
+          },
+          {
+            "employee_id": "emp_95",
+            "employee_name": "Swati Deshmukh 4",
+            "role_id": "role_data_lead",
+            "role_name": "Lead Data Engineer",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "Python": 4
+            },
+            "verified_skills_used": [],
+            "individual_suitability_score": 69.9,
+            "utilization_before": 37.5,
+            "utilization_after": 75,
+            "workload_risk_before": 15,
+            "workload_risk_after": 26.2,
+            "experience_years": 6,
+            "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+          },
+          {
+            "employee_id": "emp_anita",
+            "employee_name": "Anita Desai",
+            "role_id": "role_frontend_lead",
+            "role_name": "Frontend Architect",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "React": 5,
+              "TypeScript": 5
+            },
+            "verified_skills_used": [
+              "React",
+              "TypeScript"
+            ],
+            "individual_suitability_score": 87.8,
+            "utilization_before": 37.5,
+            "utilization_after": 75,
+            "workload_risk_before": 15,
+            "workload_risk_after": 26.2,
+            "experience_years": 6,
+            "decision_rationale": "Verified expertise in React, TypeScript; Covers key skills: React, TypeScript; 6.0 yrs exp; Post-utilization 75.0%"
+          }
+        ],
+        "total_score": 76.9,
+        "mandatory_skills_satisfied": true,
+        "preferred_skills_coverage": 50,
+        "missing_preferred_skills": [
+          "Data Analytics",
+          "SQL"
+        ],
+        "solver_status": "OPTIMAL",
+        "objective_value": 230.8,
+        "explanation": "CP-SAT solver achieved OPTIMAL team configuration in 31.1ms. 100% mandatory skills satisfied. Team suitability: 76.9/100. Preferred complementary skills coverage: 50.0%. Zero workload policy violations."
+      },
+      "backupTeams": [
+        {
+          "team_label": "Backup Team A",
+          "team_type": "backup_a",
+          "assigned_members": [
+            {
+              "employee_id": "emp_neha",
+              "employee_name": "Neha Gupta",
+              "role_id": "role_cloud_lead",
+              "role_name": "Cloud Solutions Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "AWS": 4,
+                "Docker": 3
+              },
+              "verified_skills_used": [
+                "AWS"
+              ],
+              "individual_suitability_score": 73.1,
+              "utilization_before": 30,
+              "utilization_after": 67.5,
+              "workload_risk_before": 26,
+              "workload_risk_after": 37.2,
+              "experience_years": 4.2,
+              "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS, Docker; 4.2 yrs exp; Post-utilization 67.5%"
+            },
+            {
+              "employee_id": "emp_85",
+              "employee_name": "Pooja Iyer 4",
+              "role_id": "role_data_lead",
+              "role_name": "Lead Data Engineer",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "Python": 4
+              },
+              "verified_skills_used": [],
+              "individual_suitability_score": 69.9,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_anita",
+              "employee_name": "Anita Desai",
+              "role_id": "role_frontend_lead",
+              "role_name": "Frontend Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "React": 5,
+                "TypeScript": 5
+              },
+              "verified_skills_used": [
+                "React",
+                "TypeScript"
+              ],
+              "individual_suitability_score": 87.8,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in React, TypeScript; Covers key skills: React, TypeScript; 6.0 yrs exp; Post-utilization 75.0%"
+            }
+          ],
+          "total_score": 76.9,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 75,
+          "missing_preferred_skills": [
+            "SQL"
+          ],
+          "solver_status": "OPTIMAL",
+          "objective_value": 230.8,
+          "explanation": "Alternative viable team offering high resilience. Team suitability: 76.9/100. Preferred skill coverage: 75.0%."
+        },
+        {
+          "team_label": "Backup Team B",
+          "team_type": "backup_b",
+          "assigned_members": [
+            {
+              "employee_id": "emp_85",
+              "employee_name": "Pooja Iyer 4",
+              "role_id": "role_cloud_lead",
+              "role_name": "Cloud Solutions Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "AWS": 5
+              },
+              "verified_skills_used": [
+                "AWS"
+              ],
+              "individual_suitability_score": 72.8,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_95",
+              "employee_name": "Swati Deshmukh 4",
+              "role_id": "role_data_lead",
+              "role_name": "Lead Data Engineer",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "Python": 4
+              },
+              "verified_skills_used": [],
+              "individual_suitability_score": 69.9,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_anita",
+              "employee_name": "Anita Desai",
+              "role_id": "role_frontend_lead",
+              "role_name": "Frontend Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "React": 5,
+                "TypeScript": 5
+              },
+              "verified_skills_used": [
+                "React",
+                "TypeScript"
+              ],
+              "individual_suitability_score": 87.8,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in React, TypeScript; Covers key skills: React, TypeScript; 6.0 yrs exp; Post-utilization 75.0%"
+            }
+          ],
+          "total_score": 76.8,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 50,
+          "missing_preferred_skills": [
+            "SQL",
+            "Docker"
+          ],
+          "solver_status": "OPTIMAL",
+          "objective_value": 230.5,
+          "explanation": "Contingency roster minimizing overlap with Primary Team. Team suitability: 76.8/100."
+        }
+      ],
+      "solverStatus": "OPTIMAL",
+      "solverTimeMs": 95.8,
+      "infeasibilityReasons": [],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_11",
+          "employee_name": "Rohan Mehta 1",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 4.0 yrs",
+          "suitability_score": 44.9
+        },
+        {
+          "employee_id": "emp_21",
+          "employee_name": "Aditya Malhotra 1",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 4.0 yrs",
+          "suitability_score": 37.6
+        },
+        {
+          "employee_id": "emp_27",
+          "employee_name": "Shweta Pandey 2",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (13.0h) < role hours (15.0h)",
+          "suitability_score": 61
+        },
+        {
+          "employee_id": "emp_43",
+          "employee_name": "Varun Joshi 2",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (12.0h) < role hours (15.0h)",
+          "suitability_score": 49
+        },
+        {
+          "employee_id": "emp_59",
+          "employee_name": "Siddharth Rao 3",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (11.0h) < role hours (15.0h)",
+          "suitability_score": 56.1
+        },
+        {
+          "employee_id": "emp_91",
+          "employee_name": "Manish Bansal 4",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 4.0 yrs",
+          "suitability_score": 37.6
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Lead Data Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.4
+        },
+        {
+          "employee_id": "emp_vikram",
+          "employee_name": "Vikram Singh",
+          "role_name": "Lead Data Engineer",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 3.2 yrs < required 3.5 yrs",
+          "suitability_score": 73.3
+        }
+      ],
+      "explanation": "Successfully synthesized Primary Team and 2 resilient backup alternative(s) using Google OR-Tools CP-SAT in 95.8ms. Primary team covers all 3 roles with 100% mandatory skill compliance and 50.0% complementary skill coverage."
+    },
+    {
+      "id": "rec_1792065663399",
+      "projectId": "proj_cloud_analytics",
+      "timestamp": "2026-10-15T12:01:03.399Z",
+      "primaryTeam": {
+        "team_label": "Primary Team",
+        "team_type": "primary",
+        "assigned_members": [
+          {
+            "employee_id": "emp_neha",
+            "employee_name": "Neha Gupta",
+            "role_id": "role_cloud_lead",
+            "role_name": "Cloud Solutions Architect",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "AWS": 4,
+              "Docker": 3
+            },
+            "verified_skills_used": [
+              "AWS"
+            ],
+            "individual_suitability_score": 73.1,
+            "utilization_before": 30,
+            "utilization_after": 67.5,
+            "workload_risk_before": 26,
+            "workload_risk_after": 37.2,
+            "experience_years": 4.2,
+            "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS, Docker; 4.2 yrs exp; Post-utilization 67.5%"
+          },
+          {
+            "employee_id": "emp_95",
+            "employee_name": "Swati Deshmukh 4",
+            "role_id": "role_data_lead",
+            "role_name": "Lead Data Engineer",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "Python": 4
+            },
+            "verified_skills_used": [],
+            "individual_suitability_score": 69.9,
+            "utilization_before": 37.5,
+            "utilization_after": 75,
+            "workload_risk_before": 15,
+            "workload_risk_after": 26.2,
+            "experience_years": 6,
+            "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+          },
+          {
+            "employee_id": "emp_anita",
+            "employee_name": "Anita Desai",
+            "role_id": "role_frontend_lead",
+            "role_name": "Frontend Architect",
+            "assigned_hours": 15,
+            "skills_covered": {
+              "React": 5,
+              "TypeScript": 5
+            },
+            "verified_skills_used": [
+              "React",
+              "TypeScript"
+            ],
+            "individual_suitability_score": 87.8,
+            "utilization_before": 37.5,
+            "utilization_after": 75,
+            "workload_risk_before": 15,
+            "workload_risk_after": 26.2,
+            "experience_years": 6,
+            "decision_rationale": "Verified expertise in React, TypeScript; Covers key skills: React, TypeScript; 6.0 yrs exp; Post-utilization 75.0%"
+          }
+        ],
+        "total_score": 76.9,
+        "mandatory_skills_satisfied": true,
+        "preferred_skills_coverage": 50,
+        "missing_preferred_skills": [
+          "Data Analytics",
+          "SQL"
+        ],
+        "solver_status": "OPTIMAL",
+        "objective_value": 230.8,
+        "explanation": "CP-SAT solver achieved OPTIMAL team configuration in 22.5ms. 100% mandatory skills satisfied. Team suitability: 76.9/100. Preferred complementary skills coverage: 50.0%. Zero workload policy violations."
+      },
+      "backupTeams": [
+        {
+          "team_label": "Backup Team A",
+          "team_type": "backup_a",
+          "assigned_members": [
+            {
+              "employee_id": "emp_neha",
+              "employee_name": "Neha Gupta",
+              "role_id": "role_cloud_lead",
+              "role_name": "Cloud Solutions Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "AWS": 4,
+                "Docker": 3
+              },
+              "verified_skills_used": [
+                "AWS"
+              ],
+              "individual_suitability_score": 73.1,
+              "utilization_before": 30,
+              "utilization_after": 67.5,
+              "workload_risk_before": 26,
+              "workload_risk_after": 37.2,
+              "experience_years": 4.2,
+              "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS, Docker; 4.2 yrs exp; Post-utilization 67.5%"
+            },
+            {
+              "employee_id": "emp_85",
+              "employee_name": "Pooja Iyer 4",
+              "role_id": "role_data_lead",
+              "role_name": "Lead Data Engineer",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "Python": 4
+              },
+              "verified_skills_used": [],
+              "individual_suitability_score": 69.9,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_anita",
+              "employee_name": "Anita Desai",
+              "role_id": "role_frontend_lead",
+              "role_name": "Frontend Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "React": 5,
+                "TypeScript": 5
+              },
+              "verified_skills_used": [
+                "React",
+                "TypeScript"
+              ],
+              "individual_suitability_score": 87.8,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in React, TypeScript; Covers key skills: React, TypeScript; 6.0 yrs exp; Post-utilization 75.0%"
+            }
+          ],
+          "total_score": 76.9,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 75,
+          "missing_preferred_skills": [
+            "SQL"
+          ],
+          "solver_status": "OPTIMAL",
+          "objective_value": 230.8,
+          "explanation": "Alternative viable team offering high resilience. Team suitability: 76.9/100. Preferred skill coverage: 75.0%."
+        },
+        {
+          "team_label": "Backup Team B",
+          "team_type": "backup_b",
+          "assigned_members": [
+            {
+              "employee_id": "emp_85",
+              "employee_name": "Pooja Iyer 4",
+              "role_id": "role_cloud_lead",
+              "role_name": "Cloud Solutions Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "AWS": 5
+              },
+              "verified_skills_used": [
+                "AWS"
+              ],
+              "individual_suitability_score": 72.8,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in AWS; Covers key skills: AWS; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_95",
+              "employee_name": "Swati Deshmukh 4",
+              "role_id": "role_data_lead",
+              "role_name": "Lead Data Engineer",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "Python": 4
+              },
+              "verified_skills_used": [],
+              "individual_suitability_score": 69.9,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Covers key skills: Python; 6.0 yrs exp; Post-utilization 75.0%"
+            },
+            {
+              "employee_id": "emp_anita",
+              "employee_name": "Anita Desai",
+              "role_id": "role_frontend_lead",
+              "role_name": "Frontend Architect",
+              "assigned_hours": 15,
+              "skills_covered": {
+                "React": 5,
+                "TypeScript": 5
+              },
+              "verified_skills_used": [
+                "React",
+                "TypeScript"
+              ],
+              "individual_suitability_score": 87.8,
+              "utilization_before": 37.5,
+              "utilization_after": 75,
+              "workload_risk_before": 15,
+              "workload_risk_after": 26.2,
+              "experience_years": 6,
+              "decision_rationale": "Verified expertise in React, TypeScript; Covers key skills: React, TypeScript; 6.0 yrs exp; Post-utilization 75.0%"
+            }
+          ],
+          "total_score": 76.8,
+          "mandatory_skills_satisfied": true,
+          "preferred_skills_coverage": 50,
+          "missing_preferred_skills": [
+            "SQL",
+            "Docker"
+          ],
+          "solver_status": "OPTIMAL",
+          "objective_value": 230.5,
+          "explanation": "Contingency roster minimizing overlap with Primary Team. Team suitability: 76.8/100."
+        }
+      ],
+      "solverStatus": "OPTIMAL",
+      "solverTimeMs": 97.3,
+      "infeasibilityReasons": [],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_11",
+          "employee_name": "Rohan Mehta 1",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 4.0 yrs",
+          "suitability_score": 44.9
+        },
+        {
+          "employee_id": "emp_21",
+          "employee_name": "Aditya Malhotra 1",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 4.0 yrs",
+          "suitability_score": 37.6
+        },
+        {
+          "employee_id": "emp_27",
+          "employee_name": "Shweta Pandey 2",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (13.0h) < role hours (15.0h)",
+          "suitability_score": 61
+        },
+        {
+          "employee_id": "emp_43",
+          "employee_name": "Varun Joshi 2",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (12.0h) < role hours (15.0h)",
+          "suitability_score": 49
+        },
+        {
+          "employee_id": "emp_59",
+          "employee_name": "Siddharth Rao 3",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (11.0h) < role hours (15.0h)",
+          "suitability_score": 56.1
+        },
+        {
+          "employee_id": "emp_91",
+          "employee_name": "Manish Bansal 4",
+          "role_name": "Cloud Solutions Architect",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 2.4 yrs < required 4.0 yrs",
+          "suitability_score": 37.6
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Lead Data Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.4
+        },
+        {
+          "employee_id": "emp_vikram",
+          "employee_name": "Vikram Singh",
+          "role_name": "Lead Data Engineer",
+          "reason_code": "EXP_INSUFFICIENT",
+          "explanation": "Experience 3.2 yrs < required 3.5 yrs",
+          "suitability_score": 73.3
+        }
+      ],
+      "explanation": "Successfully synthesized Primary Team and 2 resilient backup alternative(s) using Google OR-Tools CP-SAT in 97.3ms. Primary team covers all 3 roles with 100% mandatory skill compliance and 50.0% complementary skill coverage."
+    },
+    {
+      "id": "rec_1792065692961",
+      "projectId": "proj_ai_intelligence",
+      "timestamp": "2026-10-15T12:01:32.961Z",
+      "primaryTeam": null,
+      "backupTeams": [],
+      "solverStatus": "INFEASIBLE",
+      "solverTimeMs": 9.3,
+      "infeasibilityReasons": [],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Data Pipeline Specialist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.5
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "Lead ML Scientist",
+          "reason_code": "UNAVAILABLE_OR_LEAVE",
+          "explanation": "Currently on leave or declared unavailable.",
+          "suitability_score": 57.5
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "UNAVAILABLE_OR_LEAVE",
+          "explanation": "Currently on leave or declared unavailable.",
+          "suitability_score": 52.5
+        }
+      ],
+      "explanation": "No feasible team could satisfy all hard constraints for 'AI Customer Intelligence Pipeline'. Found 0 constraint bottleneck(s). Review recommendations below."
+    },
+    {
+      "id": "rec_1792065692971",
+      "projectId": "proj_ai_intelligence",
+      "timestamp": "2026-10-15T12:01:32.971Z",
+      "primaryTeam": null,
+      "backupTeams": [],
+      "solverStatus": "INFEASIBLE",
+      "solverTimeMs": 10.8,
+      "infeasibilityReasons": [],
+      "rejectedCandidates": [
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 60.1
+        },
+        {
+          "employee_id": "emp_priya",
+          "employee_name": "Priya Patel",
+          "role_name": "Data Pipeline Specialist",
+          "reason_code": "CAPACITY_EXCEEDED",
+          "explanation": "Available hours (10.0h) < role hours (15.0h)",
+          "suitability_score": 68.5
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "Lead ML Scientist",
+          "reason_code": "UNAVAILABLE_OR_LEAVE",
+          "explanation": "Currently on leave or declared unavailable.",
+          "suitability_score": 57.5
+        },
+        {
+          "employee_id": "emp_meera",
+          "employee_name": "Meera Nair",
+          "role_name": "FastAPI Backend Engineer",
+          "reason_code": "UNAVAILABLE_OR_LEAVE",
+          "explanation": "Currently on leave or declared unavailable.",
+          "suitability_score": 52.5
+        }
+      ],
+      "explanation": "No feasible team could satisfy all hard constraints for 'AI Customer Intelligence Pipeline'. Found 0 constraint bottleneck(s). Review recommendations below."
     }
   ],
   "skillEvidence": [
@@ -16183,6 +19410,76 @@
       "status": "ACTIVE",
       "startDate": "2026-10-10",
       "notes": "Structured upskilling program targeting Cloud Architect readiness."
+    },
+    {
+      "id": "ment_1792065359735",
+      "mentorId": "emp_priya",
+      "mentorName": "Priya Patel",
+      "menteeId": "emp_rahul",
+      "menteeName": "Rahul Sharma",
+      "targetSkill": "Data Analytics",
+      "weeklyHours": 4,
+      "milestones": [
+        {
+          "id": "ms_1",
+          "title": "Core Architectural Principles in Data Analytics",
+          "description": "Review production design patterns and setup local developer environment.",
+          "completed": false,
+          "dueDate": "2026-10-22"
+        },
+        {
+          "id": "ms_2",
+          "title": "Supervised Mini-Project Implementation",
+          "description": "Implement modular business logic feature under mentor code review.",
+          "completed": false,
+          "dueDate": "2026-10-29"
+        },
+        {
+          "id": "ms_3",
+          "title": "Deliverable Evaluation & GitHub Evidence Submission",
+          "description": "Commit tested PR to repo, conduct retrospective, and submit for skill verification.",
+          "completed": false,
+          "dueDate": "2026-11-05"
+        }
+      ],
+      "status": "ACTIVE",
+      "startDate": "2026-10-15",
+      "notes": "Practical upskilling track supervised by Priya Patel for Data Analytics mastery."
+    },
+    {
+      "id": "ment_1792065876144",
+      "mentorId": "emp_18",
+      "mentorName": "Varun Joshi 1",
+      "menteeId": "emp_rahul",
+      "menteeName": "Rahul Sharma",
+      "targetSkill": "Docker",
+      "weeklyHours": 4,
+      "milestones": [
+        {
+          "id": "ms_1",
+          "title": "Core Architectural Principles in Docker",
+          "description": "Review production design patterns and setup local developer environment.",
+          "completed": false,
+          "dueDate": "2026-10-22"
+        },
+        {
+          "id": "ms_2",
+          "title": "Supervised Mini-Project Implementation",
+          "description": "Implement modular business logic feature under mentor code review.",
+          "completed": false,
+          "dueDate": "2026-10-29"
+        },
+        {
+          "id": "ms_3",
+          "title": "Deliverable Evaluation & GitHub Evidence Submission",
+          "description": "Commit tested PR to repo, conduct retrospective, and submit for skill verification.",
+          "completed": false,
+          "dueDate": "2026-11-05"
+        }
+      ],
+      "status": "ACTIVE",
+      "startDate": "2026-10-15",
+      "notes": "Practical upskilling track supervised by Varun Joshi 1 for Docker mastery."
     }
   ],
   "meetings": [
@@ -16193,7 +19490,7 @@
       "title": "Cloud Analytics Architecture Kickoff",
       "scheduledAt": "2026-10-16T09:35:48.872Z",
       "durationMinutes": 45,
-      "meetUrl": "https://sparkmeet-web.onrender.com/",
+      "meetUrl": "https://meet.google.com/wfc-hack-demo",
       "isDemoMeeting": true,
       "organizerId": "user_manager",
       "organizerName": "Marcus Vance",
@@ -16386,6 +19683,37 @@
       "message": "Congratulations! You completed all practical deliverables under Rahul Sharma. Your AWS proficiency increased to 3/5 and a practical certificate has been added to your verified portfolio.",
       "read": false,
       "createdAt": "2026-10-15T11:40:57.562Z"
+    },
+    {
+      "id": "notif_1792065359761_mentee",
+      "recipientId": "emp_rahul",
+      "type": "MENTORSHIP",
+      "title": "Mentorship Track Started: Data Analytics",
+      "message": "Priya Patel is now your practical mentor for Data Analytics. Check your milestones!",
+      "read": false,
+      "createdAt": "2026-10-15T11:55:59.761Z"
+    },
+    {
+      "id": "notif_1792065643608",
+      "recipientId": "manager",
+      "type": "EMERGENCY",
+      "title": "Emergency Staffing Alert: Enterprise Cloud Analytics Platform",
+      "message": "Meera Nair is unavailable. Role 'Lead Data Engineer' requires immediate recovery. CP-SAT generated a replacement proposal.",
+      "read": false,
+      "metadata": {
+        "projectId": "proj_cloud_analytics",
+        "unavailableEmployeeId": "emp_meera"
+      },
+      "createdAt": "2026-10-15T12:00:43.608Z"
+    },
+    {
+      "id": "notif_1792065876154_mentee",
+      "recipientId": "emp_rahul",
+      "type": "MENTORSHIP",
+      "title": "Mentorship Track Started: Docker",
+      "message": "Varun Joshi 1 is now your practical mentor for Docker. Check your milestones!",
+      "read": false,
+      "createdAt": "2026-10-15T12:04:36.154Z"
     }
   ],
   "auditLogs": [
@@ -16497,6 +19825,17 @@
       "entity": "SKILL_EVIDENCE",
       "entityId": "evid_1792064267725_3gig",
       "details": "VERIFIED evidence for Rahul Sharma in skill 'Python'. Notes: Approved based on verified pull requests and multi-region deployment delivery."
+    },
+    {
+      "id": "audit_1792065643614",
+      "timestamp": "2026-10-15T12:00:43.615Z",
+      "userId": "system",
+      "userName": "Availability Monitor",
+      "userRole": "ADMIN",
+      "action": "EMERGENCY_DISRUPTION_TRIGGERED",
+      "entity": "PROJECT",
+      "entityId": "proj_cloud_analytics",
+      "details": "Employee Meera Nair became unavailable. Role 'Lead Data Engineer' disrupted."
     }
   ],
   "policies": {

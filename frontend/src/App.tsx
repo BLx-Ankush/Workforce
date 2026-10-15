@@ -24,10 +24,12 @@ import { VerificationQueue } from './components/admin/VerificationQueue';
 import { WorkloadPolicies } from './components/admin/WorkloadPolicies';
 import { AuditLogsView } from './components/admin/AuditLogsView';
 
+import { MinimalLogin } from './components/common/MinimalLogin';
+
 import { Meeting } from './types';
 
 const MainContent: React.FC = () => {
-  const { role } = useAuth();
+  const { user, loading, role } = useAuth();
   const [currentTab, setCurrentTab] = useState<string>('overview');
   const [selectedProjectId, setSelectedProjectId] = useState<string>('proj_cloud_analytics');
   const [activeMeeting, setActiveMeeting] = useState<Meeting | null>(null);
@@ -39,6 +41,18 @@ const MainContent: React.FC = () => {
     else if (role === 'EMPLOYEE') setCurrentTab('dashboard');
     else if (role === 'ADMIN') setCurrentTab('overview');
   }, [role]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-zinc-50 flex items-center justify-center">
+        <div className="w-6 h-6 border-2 border-black border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <MinimalLogin />;
+  }
 
   const handleSelectProjectForOptimization = (projectId: string) => {
     setSelectedProjectId(projectId);

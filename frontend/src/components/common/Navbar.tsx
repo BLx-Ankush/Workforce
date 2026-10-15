@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Sparkles, Bell, Shield, User, Briefcase, Cpu, CheckCircle } from 'lucide-react';
+import { Sparkles, Bell, Shield, User, Briefcase, Cpu, CheckCircle, LogOut } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { NotificationDrawer } from './NotificationDrawer';
 
 export const Navbar: React.FC = () => {
-  const { user, role, switchRole, unreadCount } = useAuth();
+  const { user, role, switchRole, unreadCount, logout } = useAuth();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
@@ -108,6 +108,16 @@ export const Navbar: React.FC = () => {
               <p className="text-[10px] text-zinc-500 capitalize">{role.toLowerCase()} Portal</p>
             </div>
           </div>
+
+          {/* Sign Out Action */}
+          <button
+            onClick={logout}
+            title="Sign Out"
+            className="p-2 px-3 rounded-xl bg-white border border-zinc-200 text-zinc-600 hover:text-black hover:bg-zinc-50 transition shadow-sm flex items-center gap-1.5 text-xs font-semibold"
+          >
+            <LogOut className="w-3.5 h-3.5 text-zinc-900" />
+            <span className="hidden sm:inline">Sign Out</span>
+          </button>
         </div>
       </header>
 

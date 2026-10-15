@@ -7,6 +7,10 @@ import {
 
 export const api = {
   // Auth
+  login: async (payload: { name?: string; email: string; password: string; role?: UserRole }) => {
+    const res = await apiClient.post('/auth/login', payload);
+    return res.data as { token: string; user: User };
+  },
   quickDemoLogin: async (role: UserRole) => {
     const res = await apiClient.post('/auth/quick-demo', { role });
     return res.data as { token: string; user: User };

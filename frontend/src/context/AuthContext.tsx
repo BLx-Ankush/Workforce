@@ -10,6 +10,8 @@ interface AuthContextType {
   loading: boolean;
   notifications: AppNotification[];
   unreadCount: number;
+  login: (name: string | undefined, email: string, password: string, role?: UserRole) => Promise<void>;
+  logout: () => void;
   switchRole: (newRole: UserRole) => Promise<void>;
   refreshUser: () => Promise<void>;
   refreshNotifications: () => Promise<void>;
@@ -58,6 +60,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const refreshUser = async () => {
+    const token = localStorage.getItem('workforce_token');
+    if (!token) {
+      setLoading(false);
+      return;
+    }
     try {
       const data = await api.getMe();
       setUser(data.user);
@@ -65,9 +72,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (data.employee) {
         setEmployee(data.employee);
       }
+      await refreshNotifications();
     } catch (e) {
-      // Fallback: switch to default Manager demo role
-      await switchRole('MANAGER');
+      localStorage.removeItem('workforce_token');
+      setUser(null);
+      setEmployee(null);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -78,6 +89,39 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     } catch (e) {
       // ignore
     }
+  };
+
+  const login = async (name: string | undefined, email: string, password: string, role?: UserRole) => {
+    setLoading(true);
+    try {
+      const res = await api.login({ name, email, password, role });
+      localStorage.setItem('workforce_token', res.token);
+      localStorage.setItem('workforce_demo_role', res.user.role);
+      setUser(res.user);
+      setRole(res.user.role);
+
+      if (res.user.employeeRef) {
+        try {
+          const empRes = await api.getEmployeeById(res.user.employeeRef);
+          setEmployee(empRes.employee);
+        } catch {
+          setEmployee(null);
+        }
+      } else {
+        setEmployee(null);
+      }
+
+      await refreshNotifications();
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const logout = () => {
+    localStorage.removeItem('workforce_token');
+    localStorage.removeItem('workforce_demo_role');
+    setUser(null);
+    setEmployee(null);
   };
 
   const switchRole = async (newRole: UserRole) => {
@@ -114,8 +158,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   useEffect(() => {
-    // Initial load: start as Manager
-    switchRole('MANAGER');
+    const token = localStorage.getItem('workforce_token');
+    if (token) {
+      refreshUser();
+    } else {
+      setLoading(false);
+    }
   }, []);
 
   const unreadCount = notifications.filter(n => !n.read).length;
@@ -129,6 +177,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         loading,
         notifications,
         unreadCount,
+        login,
+        logout,
         switchRole,
         refreshUser,
         refreshNotifications,
