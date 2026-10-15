@@ -46,6 +46,15 @@
       "role": "MANAGER",
       "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150",
       "createdAt": "2026-10-15T12:15:38.467Z"
+    },
+    {
+      "id": "user_1792067155902",
+      "name": "Ankush",
+      "email": "ankush@example.com",
+      "passwordHash": "$2a$06$.UeHy4LkSSPXTg3FXaxlS.8a8gIWocg.A0ELXaMkQtPFHZr0ZKrIC",
+      "role": "MANAGER",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150",
+      "createdAt": "2026-10-15T12:25:55.940Z"
     }
   ],
   "employees": [

@@ -28,7 +28,8 @@ export const MinimalLogin: React.FC = () => {
     try {
       await login(name.trim() || undefined, email.trim(), password, role);
     } catch (err: any) {
-      setError(err.response?.data?.error || err.message || 'Login failed. Please check credentials.');
+      const msg = typeof err === 'string' ? err : err.response?.data?.error || err.message || 'Login failed. Please check credentials.';
+      setError(msg);
     } finally {
       setLoading(false);
     }

@@ -156,6 +156,14 @@ class DataStore {
         this.saveToFile();
         return items[idx];
       },
+      update: async (id: string, updates: Partial<T>): Promise<T | null> => {
+        const items = (this.data[key] as any[]) as T[];
+        const idx = items.findIndex(item => item.id === id);
+        if (idx === -1) return null;
+        items[idx] = { ...items[idx], ...updates };
+        this.saveToFile();
+        return items[idx];
+      },
       deleteOne: async (filter: Partial<T>): Promise<boolean> => {
         const items = (this.data[key] as any[]) as T[];
         const initialLen = items.length;
