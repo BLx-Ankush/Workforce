@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Sparkles, Bell, Shield, User, Briefcase, Cpu, CheckCircle, LogOut } from 'lucide-react';
+import { Sparkles, Bell, Cpu, CheckCircle, LogOut } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { NotificationDrawer } from './NotificationDrawer';
 
 export const Navbar: React.FC = () => {
-  const { user, role, switchRole, unreadCount, logout } = useAuth();
+  const { user, role, unreadCount, logout } = useAuth();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
@@ -38,46 +38,8 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Center / Right: Demo Switcher & Profile */}
+        {/* Right: Notifications, Profile, and Sign Out */}
         <div className="flex items-center gap-4">
-          {/* Quick Demo Switcher for Hackathon Judges */}
-          <div className="bg-zinc-100 p-1 rounded-xl flex items-center gap-1 border border-zinc-200/80">
-            <button
-              onClick={() => switchRole('MANAGER')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
-                role === 'MANAGER'
-                  ? 'bg-black text-white shadow-sm'
-                  : 'text-zinc-600 hover:text-black hover:bg-white/60'
-              }`}
-            >
-              <Briefcase className="w-3.5 h-3.5" />
-              Manager
-            </button>
-
-            <button
-              onClick={() => switchRole('EMPLOYEE')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
-                role === 'EMPLOYEE'
-                  ? 'bg-black text-white shadow-sm'
-                  : 'text-zinc-600 hover:text-black hover:bg-white/60'
-              }`}
-            >
-              <User className="w-3.5 h-3.5" />
-              Employee
-            </button>
-
-            <button
-              onClick={() => switchRole('ADMIN')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
-                role === 'ADMIN'
-                  ? 'bg-black text-white shadow-sm'
-                  : 'text-zinc-600 hover:text-black hover:bg-white/60'
-              }`}
-            >
-              <Shield className="w-3.5 h-3.5" />
-              Admin
-            </button>
-          </div>
 
           {/* Notifications Bell */}
           <button
