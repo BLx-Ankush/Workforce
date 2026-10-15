@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   FolderGit2, Clock, Activity, ShieldCheck,
-  Calendar, CheckCircle, ArrowRight, User
+  Calendar, CheckCircle, ArrowRight, User, ExternalLink, Video
 } from 'lucide-react';
 import { GithubIcon } from '../common/Icons';
 import { useAuth } from '../../context/AuthContext';
@@ -204,7 +204,7 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({
               <Calendar className="w-4 h-4 text-zinc-900" />
               Upcoming Team Meetings
             </h3>
-            <span className="text-xs text-zinc-500 font-mono">Google Meet Adapter</span>
+            <span className="text-xs text-zinc-500 font-mono">SparkMeet Conference Engine</span>
           </div>
 
           <div className="space-y-3">
@@ -217,12 +217,16 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({
                       {new Date(meet.scheduledAt).toLocaleString()} ({meet.durationMinutes} mins)
                     </p>
                   </div>
-                  <button
-                    onClick={() => onOpenMeeting(meet)}
-                    className="px-3 py-1.5 rounded-lg bg-black hover:bg-zinc-800 text-white text-xs font-semibold transition shadow-sm"
+                  <a
+                    href="https://sparkmeet-web.onrender.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3.5 py-1.5 rounded-lg bg-black hover:bg-zinc-800 text-white text-xs font-semibold transition shadow-sm flex items-center gap-1.5"
                   >
-                    Join Room
-                  </button>
+                    <Video className="w-3.5 h-3.5 text-white" />
+                    Join Meeting
+                    <ExternalLink className="w-3 h-3 text-zinc-400" />
+                  </a>
                 </div>
               ))
             ) : (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Bell, AlertTriangle, ShieldCheck, UserCheck, Calendar, Check } from 'lucide-react';
+import { X, Bell, AlertTriangle, ShieldCheck, UserCheck, Calendar, Check, Video, ExternalLink } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
 interface NotificationDrawerProps {
@@ -78,14 +78,28 @@ export const NotificationDrawer: React.FC<NotificationDrawerProps> = ({ isOpen, 
                         </span>
                       </div>
                       <p className="text-xs text-zinc-600 mt-1 leading-relaxed">{notif.message}</p>
-                      {!notif.read && (
-                        <button
-                          onClick={() => markNotificationRead(notif.id)}
-                          className="mt-2 text-[11px] text-black font-semibold hover:underline flex items-center gap-1 transition"
-                        >
-                          <Check className="w-3 h-3" /> Mark read
-                        </button>
-                      )}
+                      <div className="flex items-center gap-3 mt-2">
+                        {notif.type === 'MEETING' && (
+                          <a
+                            href="https://sparkmeet-web.onrender.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[11px] text-white bg-black hover:bg-zinc-800 font-semibold px-2.5 py-1 rounded-md inline-flex items-center gap-1.5 transition shadow-sm"
+                          >
+                            <Video className="w-3 h-3 text-white" />
+                            Join SparkMeet
+                            <ExternalLink className="w-2.5 h-2.5 text-zinc-400" />
+                          </a>
+                        )}
+                        {!notif.read && (
+                          <button
+                            onClick={() => markNotificationRead(notif.id)}
+                            className="text-[11px] text-zinc-700 font-semibold hover:underline flex items-center gap-1 transition"
+                          >
+                            <Check className="w-3 h-3" /> Mark read
+                          </button>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>

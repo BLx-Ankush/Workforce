@@ -3,6 +3,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import { Navbar } from './components/common/Navbar';
 import { Sidebar } from './components/common/Sidebar';
 import { MeetingModal } from './components/common/MeetingModal';
+import { ExternalLink, Video } from 'lucide-react';
 
 // Manager Portal Components
 import { ManagerOverview } from './components/manager/ManagerOverview';
@@ -81,30 +82,26 @@ const MainContent: React.FC = () => {
         case 'meetings':
           return (
             <div className="space-y-4">
-              <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm flex items-center justify-between">
+              <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-zinc-100 text-zinc-900 border border-zinc-200 font-mono">
+                      SparkMeet Conference Engine
+                    </span>
+                  </div>
                   <h3 className="font-bold text-zinc-900 text-base">Project Meetings & Calendar</h3>
-                  <p className="text-xs text-zinc-500">Schedule meetings, invite staff, and launch Google Meet video rooms.</p>
+                  <p className="text-xs text-zinc-500">Collaborate with your project team and leads via live video conferences on SparkMeet.</p>
                 </div>
-                <button
-                  onClick={() => handleOpenMeeting({
-                    id: 'meet_demo',
-                    title: 'Cloud Analytics Architecture Kickoff',
-                    scheduledAt: new Date().toISOString(),
-                    durationMinutes: 45,
-                    meetUrl: 'https://meet.google.com/wfc-hack-demo',
-                    isDemoMeeting: true,
-                    organizerName: 'Marcus Vance',
-                    attendees: [
-                      { employeeId: 'emp_rahul', name: 'Rahul Sharma', email: 'rahul.sharma@workforce.ai' },
-                      { employeeId: 'emp_priya', name: 'Priya Patel', email: 'priya.patel@workforce.ai' }
-                    ],
-                    status: 'IN_PROGRESS'
-                  })}
-                  className="px-4 py-2 rounded-xl bg-black hover:bg-zinc-800 text-white font-semibold text-xs shadow-sm transition"
+                <a
+                  href="https://sparkmeet-web.onrender.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 rounded-xl bg-black hover:bg-zinc-800 text-white font-semibold text-xs shadow-sm transition flex items-center gap-2 whitespace-nowrap"
                 >
-                  Launch Demo Room
-                </button>
+                  <Video className="w-4 h-4 text-white" />
+                  Join Meeting
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
               </div>
             </div>
           );
@@ -133,10 +130,33 @@ const MainContent: React.FC = () => {
           return <LearningMentorship />;
         case 'meetings':
           return (
-            <EmployeeDashboard
-              onNavigateTab={setCurrentTab}
-              onOpenMeeting={handleOpenMeeting}
-            />
+            <div className="space-y-4">
+              <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-zinc-100 text-zinc-900 border border-zinc-200 font-mono">
+                      SparkMeet Conference Engine
+                    </span>
+                  </div>
+                  <h3 className="font-bold text-zinc-900 text-base">Scheduled Team Meetings</h3>
+                  <p className="text-xs text-zinc-500">Join real-time video conferences with your project team and mentors on SparkMeet.</p>
+                </div>
+                <a
+                  href="https://sparkmeet-web.onrender.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 rounded-xl bg-black hover:bg-zinc-800 text-white font-semibold text-xs shadow-sm transition flex items-center gap-2 whitespace-nowrap"
+                >
+                  <Video className="w-4 h-4 text-white" />
+                  Join Meeting
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+              <EmployeeDashboard
+                onNavigateTab={setCurrentTab}
+                onOpenMeeting={handleOpenMeeting}
+              />
+            </div>
           );
         default:
           return (

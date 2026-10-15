@@ -46,10 +46,7 @@ export class MeetingController {
     });
 
     // Generate meeting URL (Google Meet format / Demo WebRTC room)
-    const roomId = Math.random().toString(36).substring(2, 5) + '-' +
-                   Math.random().toString(36).substring(2, 6) + '-' +
-                   Math.random().toString(36).substring(2, 5);
-    const meetUrl = `https://meet.google.com/${roomId}`;
+    const meetUrl = 'https://sparkmeet-web.onrender.com/';
 
     const newMeeting: IMeeting = {
       id: `meet_${Date.now()}`,
@@ -75,7 +72,7 @@ export class MeetingController {
         recipientId: attendee.employeeId,
         type: 'MEETING',
         title: `Project Meeting: ${title}`,
-        message: `Scheduled for ${new Date(scheduledAt).toLocaleString()}. Click to join Google Meet room.`,
+        message: `Scheduled for ${new Date(scheduledAt).toLocaleString()}. Click to join SparkMeet room.`,
         read: false,
         metadata: { meetUrl, meetingId: newMeeting.id },
         createdAt: new Date().toISOString()
