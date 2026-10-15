@@ -83,10 +83,10 @@ const MainContent: React.FC = () => {
         case 'meetings':
           return (
             <div className="space-y-4">
-              <div className="glass-panel p-6 rounded-2xl flex items-center justify-between">
+              <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm flex items-center justify-between">
                 <div>
-                  <h3 className="font-bold text-white text-base">Project Meetings & Calendar</h3>
-                  <p className="text-xs text-slate-400">Schedule meetings, invite staff, and launch Google Meet video rooms.</p>
+                  <h3 className="font-bold text-zinc-900 text-base">Project Meetings & Calendar</h3>
+                  <p className="text-xs text-zinc-500">Schedule meetings, invite staff, and launch Google Meet video rooms.</p>
                 </div>
                 <button
                   onClick={() => handleOpenMeeting({
@@ -103,7 +103,7 @@ const MainContent: React.FC = () => {
                     ],
                     status: 'IN_PROGRESS'
                   })}
-                  className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs shadow-lg shadow-indigo-600/30 transition"
+                  className="px-4 py-2 rounded-xl bg-black hover:bg-zinc-800 text-white font-semibold text-xs shadow-sm transition"
                 >
                   Launch Demo Room
                 </button>
@@ -179,7 +179,7 @@ const MainContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col">
+    <div className="min-h-screen bg-zinc-50/60 text-zinc-900 flex flex-col">
       <Navbar />
       <div className="flex-1 flex overflow-hidden">
         <Sidebar currentTab={currentTab} onSelectTab={setCurrentTab} />

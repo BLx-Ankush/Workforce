@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Users, Activity, FolderGit2, CheckCircle2, AlertTriangle,
-  Sparkles, ArrowRight, TrendingUp, ShieldAlert, Cpu
+  Users, FolderGit2, AlertTriangle, Sparkles, ArrowRight, TrendingUp, ShieldAlert, Cpu
 } from 'lucide-react';
 import { MetricCard } from '../common/MetricCard';
 import { api } from '../../api';
@@ -47,8 +46,8 @@ export const ManagerOverview: React.FC<ManagerOverviewProps> = ({
 
   if (loading || !summary) {
     return (
-      <div className="flex items-center justify-center h-64 text-slate-400">
-        <Cpu className="w-6 h-6 animate-spin mr-2 text-indigo-500" />
+      <div className="flex items-center justify-center h-64 text-zinc-400 font-medium">
+        <Cpu className="w-5 h-5 animate-spin mr-2 text-black" />
         Calculating real-time workforce metrics...
       </div>
     );
@@ -62,42 +61,42 @@ export const ManagerOverview: React.FC<ManagerOverviewProps> = ({
   }));
 
   const workloadPieData = [
-    { name: 'Optimal Load', value: summary.totalEmployees - summary.overloadedCount - summary.underutilizedCount, color: '#10b981' },
-    { name: 'Underutilized', value: summary.underutilizedCount, color: '#38bdf8' },
-    { name: 'Overloaded (Risk > 90)', value: summary.overloadedCount, color: '#f43f5e' },
+    { name: 'Optimal Load', value: summary.totalEmployees - summary.overloadedCount - summary.underutilizedCount, color: '#18181b' },
+    { name: 'Underutilized', value: summary.underutilizedCount, color: '#71717a' },
+    { name: 'Overloaded (Risk > 90)', value: summary.overloadedCount, color: '#d4d4d8' },
   ];
 
   return (
     <div className="space-y-6">
       {/* Hero Banner */}
-      <div className="relative rounded-2xl overflow-hidden p-6 glass-panel border border-indigo-500/20 bg-gradient-to-r from-indigo-950/40 via-slate-900 to-slate-950">
+      <div className="rounded-2xl p-6 glass-panel border border-zinc-200 bg-white shadow-sm">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-                Decision Intelligence Dashboard
+              <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-zinc-100 text-zinc-800 border border-zinc-200 uppercase tracking-wider font-mono">
+                Workforce Intelligence Platform
               </span>
-              <span className="text-xs text-slate-400">Database Live Records</span>
+              <span className="text-xs text-zinc-500 font-medium">Authoritative Database Records</span>
             </div>
-            <h2 className="text-2xl font-bold text-white tracking-tight">Workforce Capacity & Team Optimization</h2>
-            <p className="text-sm text-slate-400 max-w-2xl mt-1">
-              Constraint-based staffing engine balancing employee skills, project capacity, and fatigue-aware risk limits.
+            <h2 className="text-2xl font-extrabold text-zinc-900 tracking-tight">Workforce Capacity & Team Optimization</h2>
+            <p className="text-xs text-zinc-500 max-w-2xl mt-1 leading-relaxed">
+              Combinatorial constraint optimization balancing technical capabilities, project capacity, and fatigue-aware risk limits.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
             <button
               onClick={() => onNavigateTab('optimizer')}
-              className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition flex items-center gap-2 shadow-lg shadow-indigo-600/30"
+              className="px-4 py-2.5 rounded-xl bg-black hover:bg-zinc-800 text-white font-semibold text-xs transition flex items-center gap-2 shadow-sm"
             >
               <Cpu className="w-4 h-4" />
               Launch CP-SAT Optimizer
             </button>
             <button
               onClick={() => onNavigateTab('recovery')}
-              className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-xs transition flex items-center gap-2"
+              className="px-4 py-2.5 rounded-xl bg-white hover:bg-zinc-50 text-zinc-900 border border-zinc-200 font-semibold text-xs transition flex items-center gap-2 shadow-sm"
             >
-              <ShieldAlert className="w-4 h-4 text-rose-400" />
+              <ShieldAlert className="w-4 h-4 text-zinc-900" />
               Emergency Recovery Simulator
             </button>
           </div>
@@ -112,7 +111,6 @@ export const ManagerOverview: React.FC<ManagerOverviewProps> = ({
           subtitle={`${departments.length} enterprise departments`}
           icon={Users}
           badge="Active Pool"
-          badgeColor="indigo"
           onClick={() => onNavigateTab('employees')}
         />
         <MetricCard
@@ -120,8 +118,7 @@ export const ManagerOverview: React.FC<ManagerOverviewProps> = ({
           value={`${summary.remainingCapacityHours}h`}
           subtitle={`${summary.availableCapacityCount} ready specialists`}
           icon={TrendingUp}
-          badge="Healthy Margin"
-          badgeColor="cyan"
+          badge="Healthy Bandwidth"
           onClick={() => onNavigateTab('workload')}
         />
         <MetricCard
@@ -129,8 +126,7 @@ export const ManagerOverview: React.FC<ManagerOverviewProps> = ({
           value={summary.overloadedCount}
           subtitle={`Blocked at Risk >= ${summary.blockingThreshold}`}
           icon={AlertTriangle}
-          badge="Policy Protected"
-          badgeColor="rose"
+          badge="Policy Blocked"
           onClick={() => onNavigateTab('workload')}
         />
         <MetricCard
@@ -139,7 +135,6 @@ export const ManagerOverview: React.FC<ManagerOverviewProps> = ({
           subtitle={`${projects.filter(p => p.status === 'STAFFED').length} currently staffed`}
           icon={FolderGit2}
           badge="In Delivery"
-          badgeColor="emerald"
           onClick={() => onNavigateTab('projects')}
         />
       </div>
@@ -147,37 +142,37 @@ export const ManagerOverview: React.FC<ManagerOverviewProps> = ({
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Department Utilization */}
-        <div className="lg:col-span-2 glass-panel p-5 rounded-2xl">
+        <div className="lg:col-span-2 glass-panel p-6 rounded-2xl">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="font-semibold text-white text-sm">Department Capacity & Utilization</h3>
-              <p className="text-xs text-slate-400">Headcount and average utilization percentage by department</p>
+              <h3 className="font-bold text-zinc-900 text-sm">Department Capacity & Utilization</h3>
+              <p className="text-xs text-zinc-500">Headcount and average utilization percentage by department</p>
             </div>
-            <span className="text-xs text-slate-400 font-mono">
-              Avg Utilization: <span className="text-indigo-400 font-bold">{summary.averageUtilizationRate}%</span>
+            <span className="text-xs text-zinc-500 font-mono">
+              Avg Utilization: <span className="text-zinc-900 font-bold">{summary.averageUtilizationRate}%</span>
             </span>
           </div>
 
           <div className="h-64">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={deptData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                <XAxis dataKey="name" stroke="#64748b" fontSize={11} />
-                <YAxis stroke="#64748b" fontSize={11} />
+                <XAxis dataKey="name" stroke="#71717a" fontSize={11} tickLine={false} />
+                <YAxis stroke="#71717a" fontSize={11} tickLine={false} />
                 <Tooltip
-                  contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', borderRadius: '8px', fontSize: '12px' }}
+                  contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e4e4e7', borderRadius: '12px', fontSize: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}
                 />
-                <Bar dataKey="headcount" fill="#4f46e5" radius={[4, 4, 0, 0]} name="Headcount" />
-                <Bar dataKey="utilization" fill="#06b6d4" radius={[4, 4, 0, 0]} name="Avg Utilization %" />
+                <Bar dataKey="headcount" fill="#18181b" radius={[4, 4, 0, 0]} name="Headcount" />
+                <Bar dataKey="utilization" fill="#71717a" radius={[4, 4, 0, 0]} name="Avg Utilization %" />
               </BarChart>
             </ResponsiveContainer>
           </div>
         </div>
 
         {/* Workload Health Breakdown */}
-        <div className="glass-panel p-5 rounded-2xl flex flex-col justify-between">
+        <div className="glass-panel p-6 rounded-2xl flex flex-col justify-between">
           <div>
-            <h3 className="font-semibold text-white text-sm">Fatigue-Aware Workload Distribution</h3>
-            <p className="text-xs text-slate-400">Risk index calculated from live project commitments</p>
+            <h3 className="font-bold text-zinc-900 text-sm">Fatigue-Aware Workload Distribution</h3>
+            <p className="text-xs text-zinc-500">Risk index calculated from live commitments</p>
           </div>
 
           <div className="h-48 my-2">
@@ -197,36 +192,36 @@ export const ManagerOverview: React.FC<ManagerOverviewProps> = ({
                   ))}
                 </Pie>
                 <Tooltip
-                  contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', borderRadius: '8px', fontSize: '12px' }}
+                  contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e4e4e7', borderRadius: '12px', fontSize: '12px' }}
                 />
               </PieChart>
             </ResponsiveContainer>
           </div>
 
-          <div className="space-y-2 border-t border-slate-800 pt-3">
+          <div className="space-y-2 border-t border-zinc-100 pt-3">
             {workloadPieData.map((item, idx) => (
               <div key={idx} className="flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: item.color }} />
-                  <span className="text-slate-300">{item.name}</span>
+                  <span className="text-zinc-600 font-medium">{item.name}</span>
                 </div>
-                <span className="font-bold text-white">{item.value}</span>
+                <span className="font-bold text-zinc-900 font-mono">{item.value}</span>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Projects Requiring Attention Table */}
-      <div className="glass-panel p-5 rounded-2xl">
+      {/* Projects Ready for Optimization Table */}
+      <div className="glass-panel p-6 rounded-2xl">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h3 className="font-semibold text-white text-sm">Projects Ready for Staffing Optimization</h3>
-            <p className="text-xs text-slate-400">Launch constraint-based CP-SAT solver to construct optimal complementary teams</p>
+            <h3 className="font-bold text-zinc-900 text-sm">Projects Ready for Staffing Optimization</h3>
+            <p className="text-xs text-zinc-500">Launch constraint-based CP-SAT solver to construct optimal complementary teams</p>
           </div>
           <button
             onClick={() => onNavigateTab('projects')}
-            className="text-xs text-indigo-400 hover:text-indigo-300 flex items-center gap-1 font-medium"
+            className="text-xs text-zinc-900 hover:text-black flex items-center gap-1 font-semibold"
           >
             View all projects <ArrowRight className="w-3.5 h-3.5" />
           </button>
@@ -235,54 +230,46 @@ export const ManagerOverview: React.FC<ManagerOverviewProps> = ({
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="border-b border-slate-800 text-[11px] font-semibold uppercase text-slate-400">
-                <th className="py-2.5 px-3">Project Title</th>
-                <th className="py-2.5 px-3">Priority</th>
-                <th className="py-2.5 px-3">Team Slots</th>
-                <th className="py-2.5 px-3">Mandatory Skills</th>
-                <th className="py-2.5 px-3">Status</th>
-                <th className="py-2.5 px-3 text-right">Optimization</th>
+              <tr className="border-b border-zinc-200 text-[11px] font-bold uppercase tracking-wider text-zinc-500 bg-zinc-50/50">
+                <th className="py-3 px-3">Project Title</th>
+                <th className="py-3 px-3">Priority</th>
+                <th className="py-3 px-3">Team Slots</th>
+                <th className="py-3 px-3">Mandatory Skills</th>
+                <th className="py-3 px-3">Status</th>
+                <th className="py-3 px-3 text-right">Optimization</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60 text-xs">
+            <tbody className="divide-y divide-zinc-100 text-xs">
               {projects.slice(0, 3).map((proj) => (
-                <tr key={proj.id} className="hover:bg-slate-900/40 transition">
+                <tr key={proj.id} className="hover:bg-zinc-50/80 transition">
                   <td className="py-3 px-3">
-                    <p className="font-medium text-white">{proj.title}</p>
-                    <p className="text-[11px] text-slate-400 truncate max-w-xs">{proj.description}</p>
+                    <p className="font-bold text-zinc-900">{proj.title}</p>
+                    <p className="text-[11px] text-zinc-500 truncate max-w-xs">{proj.description}</p>
                   </td>
                   <td className="py-3 px-3">
-                    <span className={`text-[10px] px-2 py-0.5 rounded font-semibold border ${
-                      proj.priority === 'Critical'
-                        ? 'bg-rose-500/10 text-rose-400 border-rose-500/20'
-                        : proj.priority === 'High'
-                        ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
-                        : 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20'
-                    }`}>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full font-bold border border-zinc-300 bg-zinc-100 text-zinc-800">
                       {proj.priority}
                     </span>
                   </td>
-                  <td className="py-3 px-3 font-mono">{proj.teamSize} members</td>
+                  <td className="py-3 px-3 font-mono font-medium text-zinc-700">{proj.teamSize} members</td>
                   <td className="py-3 px-3">
                     <div className="flex flex-wrap gap-1 max-w-xs">
                       {proj.roleSlots.map((slot, sIdx) => (
-                        <span key={sIdx} className="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-300">
+                        <span key={sIdx} className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-100 text-zinc-800 border border-zinc-200 font-mono">
                           {Object.keys(slot.mandatorySkills || {}).join(', ')}
                         </span>
                       ))}
                     </div>
                   </td>
                   <td className="py-3 px-3">
-                    <span className={`text-[11px] font-semibold ${
-                      proj.status === 'STAFFED' ? 'text-emerald-400' : 'text-indigo-400'
-                    }`}>
+                    <span className="text-[11px] font-bold text-zinc-900 font-mono">
                       ● {proj.status}
                     </span>
                   </td>
                   <td className="py-3 px-3 text-right">
                     <button
                       onClick={() => onSelectProjectForOptimization(proj.id)}
-                      className="px-3 py-1.5 rounded-lg bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white border border-indigo-500/30 text-xs font-semibold transition inline-flex items-center gap-1.5"
+                      className="px-3.5 py-1.5 rounded-lg bg-black hover:bg-zinc-800 text-white text-xs font-semibold transition inline-flex items-center gap-1.5 shadow-sm"
                     >
                       <Sparkles className="w-3.5 h-3.5" />
                       Optimize

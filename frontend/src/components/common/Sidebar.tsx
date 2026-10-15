@@ -52,10 +52,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentTab, onSelectTab }) => 
     : adminItems;
 
   return (
-    <aside className="w-64 border-r border-slate-800/80 bg-slate-950/60 backdrop-blur-md flex flex-col justify-between p-4 shrink-0">
+    <aside className="w-64 border-r border-zinc-200 bg-white flex flex-col justify-between p-4 shrink-0 shadow-[1px_0_2px_rgba(0,0,0,0.02)]">
       <div className="space-y-6">
         <div>
-          <p className="text-[10px] uppercase font-bold tracking-wider text-slate-500 px-3 mb-2">
+          <p className="text-[10px] uppercase font-bold tracking-wider text-zinc-400 px-3 mb-2">
             {role} Portal Navigation
           </p>
           <nav className="space-y-1">
@@ -69,16 +69,18 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentTab, onSelectTab }) => 
                   onClick={() => onSelectTab(item.id)}
                   className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-medium transition ${
                     isActive
-                      ? 'bg-indigo-600/15 border border-indigo-500/30 text-indigo-300 font-semibold shadow-sm'
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900 border border-transparent'
+                      ? 'bg-black text-white font-semibold shadow-sm'
+                      : 'text-zinc-600 hover:text-black hover:bg-zinc-100'
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
-                    <Icon className={`w-4 h-4 ${isActive ? 'text-indigo-400' : 'text-slate-500'}`} />
+                    <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-zinc-400'}`} />
                     <span>{item.label}</span>
                   </div>
                   {item.badge && (
-                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-400 font-semibold border border-indigo-500/30">
+                    <span className={`text-[9px] px-1.5 py-0.5 rounded font-mono font-semibold ${
+                      isActive ? 'bg-zinc-800 text-zinc-200 border border-zinc-700' : 'bg-zinc-100 text-zinc-600 border border-zinc-200'
+                    }`}>
                       {item.badge}
                     </span>
                   )}
@@ -89,9 +91,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentTab, onSelectTab }) => 
         </div>
       </div>
 
-      <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-[11px] text-slate-400">
-        <p className="font-semibold text-slate-300 mb-1">AMC Hackathon 2026</p>
-        <p className="text-[10px] leading-relaxed">
+      <div className="p-3.5 rounded-xl bg-zinc-50 border border-zinc-200 text-[11px] text-zinc-500">
+        <p className="font-semibold text-zinc-900 mb-0.5">Workforce Intelligence</p>
+        <p className="text-[10px] leading-relaxed text-zinc-500">
           Google OR-Tools CP-SAT + Fatigue-Aware Recovery Pipeline.
         </p>
       </div>

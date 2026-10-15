@@ -16,19 +16,12 @@ export const WorkloadGauge: React.FC<WorkloadGaugeProps> = ({
 }) => {
   const isOverloaded = score >= 90;
   const isWarning = score >= 70 && score < 90;
-  const isHealthy = score < 70;
 
-  const colorClass = isOverloaded
-    ? 'text-rose-500 stroke-rose-500'
+  const strokeColor = isOverloaded
+    ? 'text-black stroke-black stroke-[5]'
     : isWarning
-    ? 'text-amber-500 stroke-amber-500'
-    : 'text-emerald-500 stroke-emerald-500';
-
-  const bgClass = isOverloaded
-    ? 'bg-rose-500/10 text-rose-400 border-rose-500/30'
-    : isWarning
-    ? 'bg-amber-500/10 text-amber-400 border-amber-500/30'
-    : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30';
+    ? 'text-zinc-700 stroke-zinc-700'
+    : 'text-zinc-900 stroke-zinc-900';
 
   return (
     <div className="flex items-center gap-3">
@@ -40,24 +33,24 @@ export const WorkloadGauge: React.FC<WorkloadGaugeProps> = ({
             cy="24"
             r="19"
             stroke="currentColor"
-            strokeWidth="4"
+            strokeWidth="3.5"
             fill="transparent"
-            className="text-slate-800"
+            className="text-zinc-100 stroke-zinc-200"
           />
           <circle
             cx="24"
             cy="24"
             r="19"
             stroke="currentColor"
-            strokeWidth="4"
+            strokeWidth="3.5"
             fill="transparent"
             strokeDasharray={119.38}
             strokeDashoffset={119.38 - (119.38 * Math.min(100, score)) / 100}
             strokeLinecap="round"
-            className={`${colorClass} transition-all duration-500`}
+            className={`${strokeColor} transition-all duration-500`}
           />
         </svg>
-        <span className="absolute text-[11px] font-bold font-mono text-white">
+        <span className="absolute text-[11px] font-extrabold font-mono text-zinc-900">
           {score}
         </span>
       </div>
@@ -66,25 +59,25 @@ export const WorkloadGauge: React.FC<WorkloadGaugeProps> = ({
         <div>
           <div className="flex items-center gap-1.5">
             {isOverloaded ? (
-              <span className={`inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded border ${bgClass}`}>
-                <Flame className="w-3 h-3 text-rose-400 animate-pulse" />
+              <span className="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-lg bg-black text-white border border-black">
+                <Flame className="w-3 h-3 text-white" />
                 BLOCKED (Risk {score}/100)
               </span>
             ) : isWarning ? (
-              <span className={`inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded border ${bgClass}`}>
-                <AlertTriangle className="w-3 h-3" />
+              <span className="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-lg bg-zinc-200 text-zinc-900 border border-zinc-300">
+                <AlertTriangle className="w-3 h-3 text-zinc-700" />
                 High Load ({score}/100)
               </span>
             ) : (
-              <span className={`inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded border ${bgClass}`}>
-                <CheckCircle2 className="w-3 h-3" />
+              <span className="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-lg bg-zinc-100 text-zinc-800 border border-zinc-200">
+                <CheckCircle2 className="w-3 h-3 text-zinc-700" />
                 Optimal ({score}/100)
               </span>
             )}
           </div>
           {utilization !== undefined && (
-            <p className="text-[11px] text-slate-400 mt-0.5 font-mono">
-              Utilization: <span className="font-semibold text-slate-200">{utilization}%</span>
+            <p className="text-[11px] text-zinc-500 mt-0.5 font-mono">
+              Utilization: <span className="font-semibold text-zinc-900">{utilization}%</span>
             </p>
           )}
         </div>
