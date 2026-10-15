@@ -142,7 +142,7 @@ export class GitHubService {
    */
   public static async reviewEvidence(
     evidenceId: string,
-    decision: 'VERIFIED' | 'REJECTED',
+    decision: 'VERIFIED' | 'REJECTED' | 'REQUEST_MORE_EVIDENCE',
     reviewerId: string,
     reviewerNotes: string
   ) {
@@ -153,13 +153,14 @@ export class GitHubService {
     if (!employee) throw new Error('Employee not found');
 
     const isApproved = decision === 'VERIFIED';
+    const finalStatus = decision === 'REQUEST_MORE_EVIDENCE' ? 'MORE_EVIDENCE_REQUESTED' : decision;
 
     await db.skillEvidence.findByIdAndUpdate(evidenceId, {
-      reviewStatus: decision,
+      reviewStatus: finalStatus,
       reviewerId,
       reviewerNotes,
       badgeAwarded: isApproved,
-      verifiedAt: new Date().toISOString()
+      verifiedAt: isApproved ? new Date().toISOString() : undefined
     });
 
     if (isApproved) {
@@ -207,6 +208,31 @@ export class GitHubService {
         employeeId: employee.id,
         employeeName: employee.name,
         skill: evidence.skillName
+      });
+    } else if (decision === 'REQUEST_MORE_EVIDENCE') {
+      await db.notifications.create({
+        id: `notif_${Date.now()}`,
+        recipientId: employee.id,
+        type: 'VERIFICATION',
+        title: `More Evidence Requested: ${evidence.skillName}`,
+        message: `Admin requested additional repository contributions or pull request details for '${evidence.skillName}'. Notes: ${reviewerNotes}`,
+        read: false,
+        createdAt: new Date().toISOString()
+      });
+
+      SocketService.broadcast('MORE_EVIDENCE_REQUESTED', {
+        employeeId: employee.id,
+        skill: evidence.skillName
+      });
+    } else {
+      await db.notifications.create({
+        id: `notif_${Date.now()}`,
+        recipientId: employee.id,
+        type: 'VERIFICATION',
+        title: `Skill Evidence Review: ${evidence.skillName}`,
+        message: `Your submitted evidence for '${evidence.skillName}' was reviewed: ${reviewerNotes}`,
+        read: false,
+        createdAt: new Date().toISOString()
       });
     }
 

@@ -73,8 +73,8 @@ export const api = {
     const res = await apiClient.post(`/projects/${projectId}/optimize`);
     return res.data as OptimizationResponse;
   },
-  approveTeam: async (projectId: string, assignedMembers: any[]) => {
-    const res = await apiClient.post(`/projects/${projectId}/approve-team`, { assignedMembers });
+  approveTeam: async (projectId: string, assignedMembers: any[], allowBypass?: boolean) => {
+    const res = await apiClient.post(`/projects/${projectId}/approve-team`, { assignedMembers, allowBypass });
     return res.data;
   },
   simulateDisruption: async (projectId: string, unavailableEmployeeId: string) => {
@@ -115,7 +115,7 @@ export const api = {
     const res = await apiClient.get('/verification/queue', { params: { status } });
     return res.data as { count: number; items: SkillEvidence[] };
   },
-  reviewEvidence: async (id: string, decision: 'VERIFIED' | 'REJECTED', reviewerNotes?: string) => {
+  reviewEvidence: async (id: string, decision: 'VERIFIED' | 'REJECTED' | 'REQUEST_MORE_EVIDENCE', reviewerNotes?: string) => {
     const res = await apiClient.post(`/verification/${id}/review`, { decision, reviewerNotes });
     return res.data;
   },
@@ -132,6 +132,10 @@ export const api = {
   getMentorshipPairings: async () => {
     const res = await apiClient.get('/mentorship/pairings');
     return res.data as Mentorship[];
+  },
+  getMentorshipRecommendations: async (skill: string) => {
+    const res = await apiClient.get('/mentorship/recommendations', { params: { skill } });
+    return res.data;
   },
   createMentorship: async (payload: { mentorId: string; menteeId: string; targetSkill: string; weeklyHours?: number }) => {
     const res = await apiClient.post('/mentorship', payload);

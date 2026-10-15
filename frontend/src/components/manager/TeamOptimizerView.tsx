@@ -74,9 +74,15 @@ export const TeamOptimizerView: React.FC<TeamOptimizerViewProps> = ({
     currentSolution = optimization?.backup_teams?.find(t => t.team_type === 'backup_b');
   }
 
-  const handleApproveTeam = async () => {
+  const [conflictState, setConflictState] = useState<{
+    message: string;
+    conflicts: string[];
+  } | null>(null);
+
+  const handleApproveTeam = async (bypass: boolean = false) => {
     if (!currentSolution || !selectedProjectId) return;
     setApproving(true);
+    setConflictState(null);
     try {
       const payload = currentSolution.assigned_members.map(m => ({
         roleId: m.role_id,
@@ -84,10 +90,17 @@ export const TeamOptimizerView: React.FC<TeamOptimizerViewProps> = ({
         assignedHours: m.assigned_hours,
       }));
 
-      await api.approveTeam(selectedProjectId, payload);
+      await api.approveTeam(selectedProjectId, payload, bypass);
       setApprovalSuccess(true);
     } catch (err: any) {
-      alert(`Approval error: ${err}`);
+      if (err.response?.status === 409 && err.response?.data?.conflict) {
+        setConflictState({
+          message: err.response.data.message || 'Workforce availability / workload safety conflict detected.',
+          conflicts: err.response.data.conflicts || []
+        });
+      } else {
+        alert(`Approval error: ${err.response?.data?.error || err.message}`);
+      }
     } finally {
       setApproving(false);
     }
@@ -253,8 +266,15 @@ export const TeamOptimizerView: React.FC<TeamOptimizerViewProps> = ({
                   </span>
                 </h3>
 
-                {/* Approve Team Button */}
-                <div className="flex items-center gap-3">
+                {/* Approve Team & Modify Actions */}
+                <div className="flex flex-wrap items-center gap-2">
+                  <button
+                    onClick={() => onNavigateTab('projects')}
+                    className="px-3.5 py-2 rounded-xl bg-white hover:bg-zinc-50 border border-zinc-200 text-zinc-700 font-semibold text-xs transition"
+                  >
+                    Modify Requirements
+                  </button>
+
                   {approvalSuccess ? (
                     <div className="flex items-center gap-2 text-xs font-bold text-zinc-900 bg-zinc-100 border border-zinc-300 px-3 py-1.5 rounded-xl">
                       <CheckCircle2 className="w-4 h-4 text-zinc-900" />
@@ -262,7 +282,7 @@ export const TeamOptimizerView: React.FC<TeamOptimizerViewProps> = ({
                     </div>
                   ) : (
                     <button
-                      onClick={handleApproveTeam}
+                      onClick={() => handleApproveTeam(false)}
                       disabled={approving}
                       className="px-5 py-2 rounded-xl bg-black hover:bg-zinc-800 disabled:opacity-50 text-white font-semibold text-xs transition flex items-center gap-2 shadow-sm"
                     >
@@ -272,6 +292,56 @@ export const TeamOptimizerView: React.FC<TeamOptimizerViewProps> = ({
                   )}
                 </div>
               </div>
+
+              {/* Conflict & Alternative Suggestion Alert (Flow 2) */}
+              {conflictState && (
+                <div className="p-4 rounded-xl bg-white border-2 border-black space-y-3 shadow-sm animate-in fade-in">
+                  <div className="flex items-start gap-3">
+                    <AlertTriangle className="w-5 h-5 text-black shrink-0 mt-0.5" />
+                    <div className="space-y-1">
+                      <h4 className="font-bold text-sm text-zinc-900">Workforce Conflict Detected on Approval</h4>
+                      <p className="text-xs text-zinc-600">{conflictState.message}</p>
+                      <ul className="list-disc list-inside text-xs text-zinc-800 mt-2 space-y-1">
+                        {conflictState.conflicts.map((c, i) => (
+                          <li key={i} className="font-medium">{c}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-zinc-100">
+                    {optimization?.backup_teams?.some(t => t.team_type === 'backup_a') && (
+                      <button
+                        onClick={() => {
+                          setActiveTeamTab('backup_a');
+                          setConflictState(null);
+                        }}
+                        className="px-3 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-zinc-800 transition"
+                      >
+                        Switch to Backup Team A
+                      </button>
+                    )}
+                    <button
+                      onClick={handleRunOptimizer}
+                      className="px-3 py-1.5 rounded-lg bg-white border border-zinc-200 text-zinc-700 text-xs font-semibold hover:bg-zinc-50 transition"
+                    >
+                      Re-run Solver
+                    </button>
+                    <button
+                      onClick={() => onNavigateTab('projects')}
+                      className="px-3 py-1.5 rounded-lg bg-white border border-zinc-200 text-zinc-700 text-xs font-semibold hover:bg-zinc-50 transition"
+                    >
+                      Modify Project Scope
+                    </button>
+                    <button
+                      onClick={() => handleApproveTeam(true)}
+                      className="px-3 py-1.5 rounded-lg bg-zinc-100 border border-zinc-300 text-zinc-900 text-xs font-bold hover:bg-zinc-200 transition ml-auto"
+                    >
+                      Bypass Conflict with Manager Override
+                    </button>
+                  </div>
+                </div>
+              )}
 
               {/* Members Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

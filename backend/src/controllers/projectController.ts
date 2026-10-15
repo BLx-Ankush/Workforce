@@ -138,7 +138,36 @@ export class ProjectController {
       return res.status(400).json({ error: 'Duplicate employee assignment detected in proposal.' });
     }
 
-    // 2. Clear any existing active assignments for this project to prevent collisions
+    // 2. Check employee availability and workload again (Flow 2)
+    const { allowBypass } = req.body;
+    const policy = await db.getPolicies();
+    const blockingThreshold = policy?.highRiskBlockingThreshold || 90.0;
+    const conflicts: string[] = [];
+
+    for (const item of assignedMembers) {
+      const emp = await db.employees.findById(item.employeeId);
+      if (!emp) {
+        conflicts.push(`Employee ID ${item.employeeId} not found.`);
+        continue;
+      }
+      if (emp.onLeave || emp.availabilityStatus === 'ON_LEAVE') {
+        conflicts.push(`${emp.name} is currently marked as On Leave / Unavailable.`);
+      } else if (emp.workloadRiskScore >= blockingThreshold) {
+        conflicts.push(`${emp.name} has a critical fatigue risk score of ${emp.workloadRiskScore}/100 (exceeds policy limit of ${blockingThreshold}).`);
+      }
+    }
+
+    if (conflicts.length > 0 && !allowBypass) {
+      return res.status(409).json({
+        conflict: true,
+        error: 'Workforce availability / workload safety conflict detected.',
+        conflicts,
+        suggestAlternative: true,
+        message: 'One or more selected candidates are unavailable or exceed fatigue safety policies. Please switch to Backup Team A or re-optimize.'
+      });
+    }
+
+    // 3. Clear any existing active assignments for this project to prevent collisions
     const existing = await db.assignments.find({ projectId: id, status: 'ACTIVE' });
     for (const old of existing) {
       await db.assignments.updateOne({ id: old.id }, { status: 'RELEASED' });

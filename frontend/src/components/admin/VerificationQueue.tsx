@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   ShieldCheck, Check, X, Code2, AlertTriangle, GitCommit,
-  GitPullRequest, ExternalLink, RefreshCw
+  GitPullRequest, ExternalLink, RefreshCw, HelpCircle
 } from 'lucide-react';
 import { api } from '../../api';
 import { SkillEvidence } from '../../types';
@@ -26,16 +26,15 @@ export const VerificationQueue: React.FC = () => {
     fetchQueue();
   }, []);
 
-  const handleReview = async (id: string, decision: 'VERIFIED' | 'REJECTED') => {
+  const handleReview = async (id: string, decision: 'VERIFIED' | 'REJECTED' | 'REQUEST_MORE_EVIDENCE') => {
     setReviewingId(id);
     try {
-      await api.reviewEvidence(
-        id,
-        decision,
-        decision === 'VERIFIED'
-          ? 'Approved based on verified pull requests and multi-region deployment delivery.'
-          : 'Insufficient repository evidence for stated proficiency.'
-      );
+      const note = decision === 'VERIFIED'
+        ? 'Approved based on verified pull requests and multi-region deployment delivery.'
+        : decision === 'REQUEST_MORE_EVIDENCE'
+        ? 'Additional architectural commits or production pull request links requested for verification.'
+        : 'Insufficient repository evidence for stated proficiency.';
+      await api.reviewEvidence(id, decision, note);
       await fetchQueue();
     } catch (e: any) {
       alert(`Review error: ${e}`);
@@ -44,7 +43,7 @@ export const VerificationQueue: React.FC = () => {
     }
   };
 
-  const pendingItems = items.filter(i => i.reviewStatus === 'PENDING_REVIEW' || i.reviewStatus === 'DETECTED');
+  const pendingItems = items.filter(i => i.reviewStatus === 'PENDING_REVIEW' || i.reviewStatus === 'DETECTED' || i.reviewStatus === 'MORE_EVIDENCE_REQUESTED');
   const verifiedItems = items.filter(i => i.reviewStatus === 'VERIFIED');
 
   return (
@@ -112,18 +111,25 @@ export const VerificationQueue: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="flex items-center gap-2 shrink-0">
+                <div className="flex flex-wrap items-center gap-2 shrink-0">
                   <button
                     onClick={() => handleReview(item.id, 'REJECTED')}
                     disabled={reviewingId === item.id}
-                    className="px-3.5 py-2 rounded-xl bg-white hover:bg-zinc-50 text-zinc-900 border border-zinc-300 text-xs font-semibold flex items-center gap-1.5 transition shadow-sm"
+                    className="px-3 py-1.5 rounded-xl bg-white hover:bg-zinc-50 text-zinc-800 border border-zinc-300 text-xs font-semibold flex items-center gap-1.5 transition shadow-sm"
                   >
                     <X className="w-3.5 h-3.5" /> Reject
                   </button>
                   <button
+                    onClick={() => handleReview(item.id, 'REQUEST_MORE_EVIDENCE')}
+                    disabled={reviewingId === item.id}
+                    className="px-3 py-1.5 rounded-xl bg-white hover:bg-zinc-50 text-zinc-900 border border-zinc-400 text-xs font-semibold flex items-center gap-1.5 transition shadow-sm"
+                  >
+                    <HelpCircle className="w-3.5 h-3.5 text-zinc-700" /> Request Evidence
+                  </button>
+                  <button
                     onClick={() => handleReview(item.id, 'VERIFIED')}
                     disabled={reviewingId === item.id}
-                    className="px-4 py-2 rounded-xl bg-black hover:bg-zinc-800 text-white font-semibold text-xs flex items-center gap-1.5 shadow-sm transition"
+                    className="px-4 py-1.5 rounded-xl bg-black hover:bg-zinc-800 text-white font-semibold text-xs flex items-center gap-1.5 shadow-sm transition"
                   >
                     <Check className="w-3.5 h-3.5" /> Approve & Issue Badge
                   </button>

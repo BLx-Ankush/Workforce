@@ -60,9 +60,49 @@ export class MentorshipController {
       ms.completed = completed;
     }
 
+    const allCompleted = mentorship.milestones.every(m => m.completed);
+    const newStatus = allCompleted ? 'COMPLETED' : 'ACTIVE';
+
     const updated = await db.mentorships.findByIdAndUpdate(mentorshipId, {
-      milestones: mentorship.milestones
+      milestones: mentorship.milestones,
+      status: newStatus
     });
+
+    if (allCompleted) {
+      const mentee = await db.employees.findById(mentorship.menteeId);
+      if (mentee) {
+        const curSkills = { ...mentee.skills };
+        const oldProf = curSkills[mentorship.targetSkill] || 2;
+        const newProf = Math.min(5, oldProf + 1);
+        curSkills[mentorship.targetSkill] = newProf;
+
+        const badges = mentee.verifiedBadges || [];
+        const badgeTitle = `Practical Certificate: ${mentorship.targetSkill} Mastery`;
+        if (!badges.some(b => b.badgeName === badgeTitle)) {
+          badges.push({
+            badgeName: badgeTitle,
+            skill: mentorship.targetSkill,
+            issuedDate: new Date().toISOString().split('T')[0],
+            evidenceSource: `Supervised Mentorship Track with ${mentorship.mentorName}`
+          });
+        }
+
+        await db.employees.findByIdAndUpdate(mentee.id, {
+          skills: curSkills,
+          verifiedBadges: badges
+        });
+
+        await db.notifications.create({
+          id: `notif_${Date.now()}`,
+          recipientId: mentee.id,
+          type: 'MENTORSHIP',
+          title: `Mentorship Track Completed: ${mentorship.targetSkill}!`,
+          message: `Congratulations! You completed all practical deliverables under ${mentorship.mentorName}. Your ${mentorship.targetSkill} proficiency increased to ${newProf}/5 and a practical certificate has been added to your verified portfolio.`,
+          read: false,
+          createdAt: new Date().toISOString()
+        });
+      }
+    }
 
     return res.json(updated);
   }

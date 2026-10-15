@@ -15,6 +15,7 @@ export const EmergencyRecoverySimulator: React.FC = () => {
   const [recoveryData, setRecoveryData] = useState<any>(null);
   const [approving, setApproving] = useState(false);
   const [recoveryApproved, setRecoveryApproved] = useState(false);
+  const [recoveryDeclined, setRecoveryDeclined] = useState(false);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -44,6 +45,7 @@ export const EmergencyRecoverySimulator: React.FC = () => {
     if (!selectedProjectId || !unavailableEmpId) return;
     setSimulating(true);
     setRecoveryApproved(false);
+    setRecoveryDeclined(false);
     try {
       const result = await api.simulateDisruption(selectedProjectId, unavailableEmpId);
       setRecoveryData(result);
@@ -169,21 +171,35 @@ export const EmergencyRecoverySimulator: React.FC = () => {
             </div>
 
             {/* Approval Action */}
-            {recoveryApproved ? (
-              <div className="flex items-center gap-2 text-xs font-bold text-zinc-900 bg-zinc-100 border border-zinc-300 px-4 py-2 rounded-xl">
-                <CheckCircle2 className="w-4 h-4 text-zinc-900" />
-                Replacement Approved & Authoritative Roster Restored!
-              </div>
-            ) : (
-              <button
-                onClick={handleApproveRecovery}
-                disabled={approving || !recoveryData.success}
-                className="px-5 py-2.5 rounded-xl bg-black hover:bg-zinc-800 disabled:opacity-50 text-white font-semibold text-xs transition flex items-center gap-2 shadow-sm whitespace-nowrap"
-              >
-                <CheckCircle2 className="w-4 h-4 text-white" />
-                {approving ? 'Committing Changes...' : 'Approve Recovery & Commit Replacement'}
-              </button>
-            )}
+            <div className="flex flex-wrap items-center gap-3">
+              {recoveryApproved ? (
+                <div className="flex items-center gap-2 text-xs font-bold text-zinc-900 bg-zinc-100 border border-zinc-300 px-4 py-2 rounded-xl">
+                  <CheckCircle2 className="w-4 h-4 text-zinc-900" />
+                  Replacement Approved & Authoritative Roster Restored!
+                </div>
+              ) : recoveryDeclined ? (
+                <div className="flex items-center gap-2 text-xs font-semibold text-zinc-800 bg-zinc-100 border border-zinc-200 px-4 py-2 rounded-xl">
+                  Current team retained. Exploring alternate staffing or timeline adjustments.
+                </div>
+              ) : (
+                <>
+                  <button
+                    onClick={() => setRecoveryDeclined(true)}
+                    className="px-4 py-2 rounded-xl bg-white hover:bg-zinc-50 border border-zinc-200 text-zinc-700 font-semibold text-xs transition"
+                  >
+                    Keep Current Team & Explore Other Options
+                  </button>
+                  <button
+                    onClick={handleApproveRecovery}
+                    disabled={approving || !recoveryData.success}
+                    className="px-5 py-2.5 rounded-xl bg-black hover:bg-zinc-800 disabled:opacity-50 text-white font-semibold text-xs transition flex items-center gap-2 shadow-sm whitespace-nowrap"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                    {approving ? 'Committing Changes...' : 'Approve Recovery & Commit Replacement'}
+                  </button>
+                </>
+              )}
+            </div>
           </div>
 
           {/* Before & After Team Comparison */}

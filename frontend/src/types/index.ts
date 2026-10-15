@@ -163,7 +163,7 @@ export interface SkillEvidence {
   linesChanged?: number;
   evidenceSnippet: string;
   detectedProficiency: number;
-  reviewStatus: 'DETECTED' | 'PENDING_REVIEW' | 'VERIFIED' | 'REJECTED';
+  reviewStatus: 'DETECTED' | 'PENDING_REVIEW' | 'VERIFIED' | 'REJECTED' | 'MORE_EVIDENCE_REQUESTED';
   reviewerId?: string;
   reviewerNotes?: string;
   badgeAwarded: boolean;

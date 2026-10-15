@@ -20,10 +20,11 @@ export class VerificationController {
 
   public static async reviewEvidence(req: AuthRequest, res: Response) {
     const { id } = req.params;
-    const { decision, reviewerNotes } = req.body; // 'VERIFIED' | 'REJECTED'
+    const { decision, reviewerNotes } = req.body; // 'VERIFIED' | 'REJECTED' | 'REQUEST_MORE_EVIDENCE'
+    const validDecisions = ['VERIFIED', 'REJECTED', 'REQUEST_MORE_EVIDENCE'];
 
-    if (!decision || !['VERIFIED', 'REJECTED'].includes(decision)) {
-      return res.status(400).json({ error: "decision must be 'VERIFIED' or 'REJECTED'" });
+    if (!decision || !validDecisions.includes(decision)) {
+      return res.status(400).json({ error: `decision must be one of: ${validDecisions.join(', ')}` });
     }
 
     const reviewerId = req.user?.id || 'admin_1';

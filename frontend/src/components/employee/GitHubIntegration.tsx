@@ -110,6 +110,7 @@ export const GitHubIntegration: React.FC = () => {
             evidences.map((item) => {
               const isVerified = item.reviewStatus === 'VERIFIED';
               const isRejected = item.reviewStatus === 'REJECTED';
+              const isMoreEvidence = item.reviewStatus === 'MORE_EVIDENCE_REQUESTED';
 
               return (
                 <div
@@ -125,11 +126,13 @@ export const GitHubIntegration: React.FC = () => {
                       <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold border ${
                         isVerified
                           ? 'bg-black text-white border-black'
+                          : isMoreEvidence
+                          ? 'bg-zinc-100 text-zinc-900 border-zinc-900'
                           : isRejected
                           ? 'bg-zinc-200 text-zinc-800 border-zinc-300'
                           : 'bg-zinc-100 text-zinc-700 border-zinc-300'
                       }`}>
-                        {item.reviewStatus}
+                        {isMoreEvidence ? 'MORE EVIDENCE REQUESTED' : item.reviewStatus}
                       </span>
                     </div>
 
@@ -153,6 +156,19 @@ export const GitHubIntegration: React.FC = () => {
                       <span className="text-xs font-semibold text-zinc-900 flex items-center gap-1 mt-1">
                         <ShieldCheck className="w-4 h-4 text-zinc-900" /> Badge Active
                       </span>
+                    ) : isMoreEvidence ? (
+                      <div className="mt-1 space-y-1">
+                        <span className="text-[10px] font-bold text-zinc-900 bg-zinc-100 border border-zinc-300 px-2 py-0.5 rounded block">
+                          Admin Requested Evidence
+                        </span>
+                        <button
+                          onClick={handleSync}
+                          disabled={syncing}
+                          className="text-[10px] font-bold text-black underline underline-offset-2 hover:opacity-80 block ml-auto"
+                        >
+                          Re-sync / Submit Evidence
+                        </button>
+                      </div>
                     ) : (
                       <span className="text-[10px] text-zinc-500 block mt-1">
                         Queued for Admin Review
