@@ -19489,6 +19489,41 @@
       "status": "ACTIVE",
       "startDate": "2026-10-15",
       "notes": "Practical upskilling track supervised by Varun Joshi 1 for Docker mastery."
+    },
+    {
+      "id": "ment_1792068442510",
+      "mentorId": "emp_arjun",
+      "mentorName": "Arjun Verma",
+      "menteeId": "emp_rahul",
+      "menteeName": "Rahul Sharma",
+      "targetSkill": "Python",
+      "weeklyHours": 4,
+      "milestones": [
+        {
+          "id": "ms_1",
+          "title": "Core Architectural Principles in Python",
+          "description": "Review production design patterns and setup local developer environment.",
+          "completed": false,
+          "dueDate": "2026-10-22"
+        },
+        {
+          "id": "ms_2",
+          "title": "Supervised Mini-Project Implementation",
+          "description": "Implement modular business logic feature under mentor code review.",
+          "completed": false,
+          "dueDate": "2026-10-29"
+        },
+        {
+          "id": "ms_3",
+          "title": "Deliverable Evaluation & GitHub Evidence Submission",
+          "description": "Commit tested PR to repo, conduct retrospective, and submit for skill verification.",
+          "completed": false,
+          "dueDate": "2026-11-05"
+        }
+      ],
+      "status": "ACTIVE",
+      "startDate": "2026-10-15",
+      "notes": "Practical upskilling track supervised by Arjun Verma for Python mastery."
     }
   ],
   "meetings": [
@@ -19723,6 +19758,15 @@
       "message": "Varun Joshi 1 is now your practical mentor for Docker. Check your milestones!",
       "read": false,
       "createdAt": "2026-10-15T12:04:36.154Z"
+    },
+    {
+      "id": "notif_1792068442516_mentee",
+      "recipientId": "emp_rahul",
+      "type": "MENTORSHIP",
+      "title": "Mentorship Track Started: Python",
+      "message": "Arjun Verma is now your practical mentor for Python. Check your milestones!",
+      "read": false,
+      "createdAt": "2026-10-15T12:47:22.516Z"
     }
   ],
   "auditLogs": [

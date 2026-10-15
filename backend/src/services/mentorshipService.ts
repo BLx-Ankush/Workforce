@@ -45,6 +45,97 @@ export class MentorshipService {
       const deficit = totalDemand - s.advanced;
       const urgency = deficit > 0 ? (deficit >= 3 ? 'CRITICAL' : 'MODERATE') : 'HEALTHY';
 
+      // Find senior specialist for this skill
+      const seniorCandidates = employees.filter(e => !e.onLeave && (e.skills[skill] || 0) >= 3);
+      seniorCandidates.sort((a, b) => {
+        const aScore = (a.skills[skill] || 0) * 10 + (a.verifiedSkills?.includes(skill) ? 15 : 0) + (a.experienceYears || 0);
+        const bScore = (b.skills[skill] || 0) * 10 + (b.verifiedSkills?.includes(skill) ? 15 : 0) + (b.experienceYears || 0);
+        return bScore - aScore;
+      });
+
+      const topSenior = seniorCandidates[0] || employees.find(e => (e.skills[skill] || 0) >= 2) || employees[0];
+
+      const seniorPerson = topSenior ? {
+        id: topSenior.id,
+        name: topSenior.name,
+        role: topSenior.title || topSenior.jobRole || 'Senior Staff Specialist',
+        avatar: topSenior.githubAvatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150',
+        proficiency: topSenior.skills[skill] || 4,
+        isVerified: topSenior.verifiedSkills?.includes(skill) || false,
+        experienceYears: topSenior.experienceYears || 5,
+        availableHours: topSenior.availableHours || 10
+      } : null;
+
+      const youtubeCourses: Record<string, { title: string; url: string; channel: string; duration: string }> = {
+        'AWS': {
+          title: 'AWS Certified Cloud Practitioner & Solutions Architect Course',
+          url: 'https://www.youtube.com/watch?v=SOTamWNgDKc',
+          channel: 'freeCodeCamp.org',
+          duration: '13 hours'
+        },
+        'Docker': {
+          title: 'Docker Full Course for Beginners - Complete Tutorial',
+          url: 'https://www.youtube.com/watch?v=fqMOX6JJhGo',
+          channel: 'freeCodeCamp.org',
+          duration: '4 hours'
+        },
+        'Python': {
+          title: 'Python for Beginners - Full Masterclass',
+          url: 'https://www.youtube.com/watch?v=_uQrJ0TkZlc',
+          channel: 'Programming with Mosh',
+          duration: '6 hours'
+        },
+        'React': {
+          title: 'React 18 & 19 Full Masterclass for Production Engineering',
+          url: 'https://www.youtube.com/watch?v=bMknfKXIFA8',
+          channel: 'freeCodeCamp.org',
+          duration: '11 hours'
+        },
+        'TypeScript': {
+          title: 'TypeScript Full Course - Beginner to Advanced',
+          url: 'https://www.youtube.com/watch?v=BwuLxPH8IDs',
+          channel: 'freeCodeCamp.org',
+          duration: '5 hours'
+        },
+        'Data Analytics': {
+          title: 'Data Analysis with Python Course - Hands-On Project Tutorial',
+          url: 'https://www.youtube.com/watch?v=r-uOLxNrNk8',
+          channel: 'freeCodeCamp.org',
+          duration: '4 hours'
+        },
+        'Kubernetes': {
+          title: 'Kubernetes Course for Beginners - Complete Crash Course',
+          url: 'https://www.youtube.com/watch?v=X48VuDVv0do',
+          channel: 'freeCodeCamp.org',
+          duration: '4 hours'
+        },
+        'Machine Learning': {
+          title: 'Machine Learning for Everybody - Full Course',
+          url: 'https://www.youtube.com/watch?v=i_LwzRVP7bg',
+          channel: 'freeCodeCamp.org',
+          duration: '4 hours'
+        },
+        'SQL': {
+          title: 'SQL Tutorial - Full Database Course for Beginners',
+          url: 'https://www.youtube.com/watch?v=HXV3zeQKqGY',
+          channel: 'freeCodeCamp.org',
+          duration: '4.5 hours'
+        },
+        'FastAPI': {
+          title: 'FastAPI Course - Build Fast Python APIs from Scratch',
+          url: 'https://www.youtube.com/watch?v=0sOvCWFmrtA',
+          channel: 'freeCodeCamp.org',
+          duration: '19 hours'
+        }
+      };
+
+      const course = youtubeCourses[skill] || {
+        title: `${skill} Professional Engineering Full Course`,
+        url: `https://www.youtube.com/results?search_query=${encodeURIComponent(skill + ' full course tutorial')}`,
+        channel: 'YouTube Technical Learning',
+        duration: 'Comprehensive'
+      };
+
       return {
         skill,
         mandatoryProjectDemand: d.mandatory,
@@ -53,7 +144,9 @@ export class MentorshipService {
         verifiedSpecialistsCount: s.verified,
         seniorProficientCount: s.advanced,
         gapIndex: Math.max(0, deficit),
-        urgency
+        urgency,
+        seniorMentor: seniorPerson,
+        course
       };
     });
 
